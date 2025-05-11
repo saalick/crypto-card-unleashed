@@ -13,7 +13,7 @@ const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    document.title = "CryptoCard - Spend Crypto Like Fiat";
+    document.title = "DegenPay - Spend Crypto Like Fiat";
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

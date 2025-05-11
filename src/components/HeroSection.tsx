@@ -117,11 +117,13 @@ const HeroSection = () => {
                   <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
                   <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                     <div className="flex justify-between">
-                      <div className="text-sm font-medium text-gray-300">CryptoCard</div>
-                      <div className="w-12 h-12 rounded-full bg-gradient-to-r from-crypto-orange to-crypto-purple flex items-center justify-center">
-                        <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" />
-                        </svg>
+                      <div className="text-sm font-medium text-gray-300">DegenPay</div>
+                      <div className="w-12 h-12 rounded-full overflow-hidden">
+                        <img 
+                          src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                          alt="DegenPay Logo" 
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                     </div>
                     
@@ -156,9 +158,11 @@ const HeroSection = () => {
               
               <div className="absolute -bottom-4 right-8 w-20 h-20 md:w-32 md:h-32 rounded-lg bg-gradient-to-r from-crypto-blue to-crypto-green p-[2px] animate-float rotate-12 shadow-lg shadow-crypto-blue/20">
                 <div className="w-full h-full rounded-lg bg-black/90 flex items-center justify-center">
-                  <svg className="w-10 h-10 md:w-16 md:h-16 text-crypto-green" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                  </svg>
+                  <img 
+                    src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                    alt="DegenPay Logo" 
+                    className="w-10 h-10 md:w-16 md:h-16 object-contain"
+                  />
                 </div>
               </div>
               
