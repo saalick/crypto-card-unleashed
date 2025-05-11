@@ -48,6 +48,15 @@ const FeaturesSection = () => {
     },
   ];
 
+  // Payment networks that accept CryptoCard
+  const paymentNetworks = [
+    { name: "Visa", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visa/visa-original.svg", class: "h-10 w-20" },
+    { name: "Mastercard", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mastercard/mastercard-original.svg", class: "h-10 w-16" },
+    { name: "Apple Pay", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg", class: "h-8 w-8" },
+    { name: "Google Pay", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg", class: "h-8 w-8" },
+    { name: "PayPal", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/paypal/paypal-original.svg", class: "h-8 w-16" }
+  ];
+
   return (
     <section id="features" className="py-24 relative">
       <div className="absolute inset-0 -z-10">
@@ -88,21 +97,19 @@ const FeaturesSection = () => {
         <div className="mt-24 animate-fade-up">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gradient-2">Accepted Everywhere</h3>
           <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
-            <div className="h-12 w-36 bg-white/5 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 animate-pulse-soft">
-              <div className="w-16 h-6 bg-gray-500/30 rounded"></div>
-            </div>
-            <div className="h-12 w-36 bg-white/5 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 animate-pulse-soft">
-              <div className="w-20 h-6 bg-gray-500/30 rounded"></div>
-            </div>
-            <div className="h-12 w-36 bg-white/5 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 animate-pulse-soft">
-              <div className="w-16 h-6 bg-gray-500/30 rounded"></div>
-            </div>
-            <div className="h-12 w-36 bg-white/5 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 animate-pulse-soft">
-              <div className="w-24 h-6 bg-gray-500/30 rounded"></div>
-            </div>
-            <div className="h-12 w-36 bg-white/5 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/10 animate-pulse-soft">
-              <div className="w-20 h-6 bg-gray-500/30 rounded"></div>
-            </div>
+            {paymentNetworks.map((network, index) => (
+              <div 
+                key={network.name} 
+                className="h-16 w-40 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft"
+                style={{animationDelay: `${index * 0.2}s`}}
+              >
+                <img 
+                  src={network.logo} 
+                  alt={`${network.name} logo`} 
+                  className={`${network.class} object-contain`} 
+                />
+              </div>
+            ))}
           </div>
         </div>
       </div>
