@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -139,7 +140,7 @@ const HeroSection = () => {
                       <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                         <div className="flex justify-between items-center">
                           <div className="text-sm font-medium text-gray-300">DGNPay</div>
-                          {/* Moved Visa logo to the top right */}
+                          {/* Visa logo at the top right */}
                           <div className="w-12 h-8 flex items-center justify-center">
                             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
                               <path d="M14.219 24.583h-3.609l2.254-13.916h3.609L14.219 24.583z" fill="#00579F"/>
@@ -162,14 +163,13 @@ const HeroSection = () => {
                               <div className="text-xs text-gray-400">NAME</div>
                               <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
                             </div>
-                            {/* Removed the Visa logo from here since we moved it to the top */}
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Keep the back of card code the same */}
+                  {/* Back of card */}
                   <div className="credit-card-back absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
                     <div className="absolute inset-0 bg-gradient-to-r from-crypto-blue to-crypto-purple rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
                     <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-blue via-crypto-purple to-crypto-orange overflow-hidden">
@@ -183,7 +183,7 @@ const HeroSection = () => {
                             <div className="w-16 h-16 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue p-1 animate-spin-slow">
                               <div className="w-full h-full rounded-full bg-black/80 flex items-center justify-center">
                                 <img 
-                                  src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                                  src="https://i.ibb.co/G47x2nDf/Screenshot-2025-05-12-at-11-45-08-PM-removebg-preview.png" 
                                   alt="DGNPay Logo" 
                                   className="w-10 h-10 object-contain"
                                 />
@@ -198,14 +198,14 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              {/* Keep the decorative elements the same */}
+              {/* Decorative elements */}
               <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-crypto-green rounded-full blur-xl animate-pulse-soft opacity-30"></div>
               <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-crypto-orange rounded-full blur-xl animate-pulse-soft opacity-30"></div>
               
               <div className="absolute -bottom-4 right-8 w-20 h-20 md:w-32 md:h-32 rounded-lg bg-gradient-to-r from-crypto-blue to-crypto-green p-[2px] animate-float rotate-12 shadow-lg shadow-crypto-blue/20">
                 <div className="w-full h-full rounded-lg bg-black/90 flex items-center justify-center p-2">
                   <img 
-                    src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                    src="https://i.ibb.co/G47x2nDf/Screenshot-2025-05-12-at-11-45-08-PM-removebg-preview.png" 
                     alt="DGNPay Logo" 
                     className="w-full h-full object-contain"
                   />
@@ -226,7 +226,7 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Keep background decorative elements the same */}
+      {/* Background decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-10 left-10 w-60 h-60 bg-crypto-purple/20 rounded-full filter blur-[100px]"></div>
         <div className="absolute bottom-10 right-10 w-60 h-60 bg-crypto-blue/20 rounded-full filter blur-[100px]"></div>
