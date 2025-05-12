@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -7,7 +6,6 @@ const HeroSection = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [activeToggle, setActiveToggle] = useState("visa");
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -102,33 +100,12 @@ const HeroSection = () => {
               The next-gen card that lets you spend your cryptocurrency anywhere, anytime. Just like traditional money, but better.
             </p>
             
-            {/* Replacing buttons with toggle group */}
-            <div className="mb-8">
-              <ToggleGroup 
-                type="single" 
-                value={activeToggle}
-                onValueChange={(value) => value && setActiveToggle(value)}
-                className="bg-black/40 p-1.5 rounded-xl border border-gray-800"
-              >
-                <ToggleGroupItem 
-                  value="visa" 
-                  className="data-[state=on]:bg-gradient-to-r data-[state=on]:from-crypto-purple data-[state=on]:to-crypto-blue data-[state=on]:text-white px-6 py-3 rounded-lg"
-                >
-                  Visa
-                </ToggleGroupItem>
-                <ToggleGroupItem 
-                  value="mastercard" 
-                  className="data-[state=on]:bg-gradient-to-r data-[state=on]:from-crypto-purple data-[state=on]:to-crypto-blue data-[state=on]:text-white px-6 py-3 rounded-lg"
-                >
-                  Mastercard
-                </ToggleGroupItem>
-                <ToggleGroupItem 
-                  value="amex" 
-                  className="data-[state=on]:bg-gradient-to-r data-[state=on]:from-crypto-purple data-[state=on]:to-crypto-blue data-[state=on]:text-white px-6 py-3 rounded-lg"
-                >
-                  Amex
-                </ToggleGroupItem>
-              </ToggleGroup>
+            {/* Powered by Visa section */}
+            <div className="mb-8 flex items-center">
+              <div className="bg-black/40 p-4 rounded-xl border border-gray-800 flex items-center">
+                <span className="text-gray-300 mr-2">Powered by</span>
+                <div className="text-[#1EAEDB] font-bold text-2xl">VISA</div>
+              </div>
             </div>
             
             <div className="mt-8 flex items-center">
