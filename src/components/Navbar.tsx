@@ -56,7 +56,7 @@ const Navbar = () => {
                     className="text-white hover:text-crypto-purple transition-colors"
                   >
                     <img 
-                      src="https://loodibee.com/wp-content/uploads/Twitter-X-Logo.png" 
+                      src="https://cdn.iconscout.com/icon/free/png-256/free-twitter-x-icon-download-in-svg-png-gif-file-formats--logo-social-media-logos-pack-icons-7740647.png" 
                       alt="X Logo" 
                       className="w-5 h-5"
                     />
