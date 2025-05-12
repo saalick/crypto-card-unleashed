@@ -1,3 +1,4 @@
+
 import { useState } from "react";
 import { 
   Tabs, 
@@ -38,12 +39,12 @@ const FAQSection = () => {
     {
       id: "sec-1",
       question: "How secure is DGNPay?",
-      answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our cards include standard fraud protection features."
+      answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our DGNPay cards include standard fraud protection features."
     },
     {
       id: "sec-2",
-      question: "What happens if I lose my card?",
-      answer: "If your card is lost or stolen, you can instantly freeze it through our mobile app. Our 24/7 support team can help you get a replacement card shipped to you quickly while keeping your funds secure."
+      question: "What happens if I lose my DGNPay card?",
+      answer: "If your DGNPay card is lost or stolen, you can instantly freeze it through our mobile app. Our 24/7 support team can help you get a replacement card shipped to you quickly while keeping your funds secure."
     },
   ];
 

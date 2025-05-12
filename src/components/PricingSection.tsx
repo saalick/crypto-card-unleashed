@@ -15,6 +15,7 @@ const PricingSection = () => {
         "$5,000 Monthly Deposit Limit",
         "Standard Support",
         "Apple Wallet Integration",
+        "Mastercard Only",
       ],
       cta: "Join Waitlist",
       isPopular: false,
@@ -24,12 +25,13 @@ const PricingSection = () => {
       name: "Quant",
       price: "$25/mo",
       features: [
-        "Physical & Virtual Cards",
+        "Virtual DGNPay Card",
         "Support for 20+ Cryptocurrencies",
         "Premium Exchange Rates",
         "$10,000 Monthly Deposit Limit",
         "Priority Support",
         "Apple Wallet Integration",
+        "Mastercard Only",
         "Cashback Rewards",
       ],
       cta: "Join Waitlist",
@@ -40,13 +42,14 @@ const PricingSection = () => {
       name: "Whale",
       price: "$60/mo",
       features: [
-        "Multiple Cards Management",
+        "Physical & Virtual DGNPay Cards",
         "All Cryptocurrencies Support",
         "Best Exchange Rates",
         "$20,000 Monthly Deposit Limit",
         "Dedicated Account Manager",
         "Enhanced Security Features",
         "Expense Management Tools",
+        "Visa + Mastercard Support",
         "Premium Metal Card",
       ],
       cta: "Join Waitlist",
@@ -127,7 +130,7 @@ const PricingSection = () => {
 
         <div className="mt-16 text-center animate-fade-up">
           <p className="text-gray-400">
-            All plans include our core security features and fraud protection.
+            All plans include our core security features, Apple Wallet integration, and fraud protection.
           </p>
         </div>
       </div>
