@@ -88,7 +88,7 @@ const Index = () => {
       
       // Random properties
       const size = Math.random() * 8 + 2;
-      const colors = ['rgba(139, 92, 246, 0.3)', 'rgba(59, 130, 246, 0.3)', 'rgba(16, 185, 129, 0.3)'];
+      const colors = ['rgba(0, 245, 212, 0.3)', 'rgba(59, 130, 246, 0.3)', 'rgba(16, 185, 129, 0.3)'];
       const color = colors[Math.floor(Math.random() * colors.length)];
       
       // Position

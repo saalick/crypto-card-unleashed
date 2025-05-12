@@ -10,8 +10,8 @@ const FeaturesSection = () => {
       id: 1,
       title: "Spend Crypto Anywhere",
       description: "Use your cryptocurrency at any location that accepts traditional payment cards worldwide.",
-      icon: <CreditCard className="h-10 w-10 text-crypto-purple" />,
-      color: "from-crypto-purple to-crypto-blue"
+      icon: <CreditCard className="h-10 w-10 text-crypto-teal" />,
+      color: "from-crypto-teal to-crypto-blue"
     },
     {
       id: 2,
@@ -86,7 +86,7 @@ const FeaturesSection = () => {
   return (
     <section id="features" className="py-24 relative">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 right-0 w-96 h-96 bg-crypto-purple/10 rounded-full filter blur-[100px]"></div>
+        <div className="absolute top-0 right-0 w-96 h-96 bg-crypto-teal/10 rounded-full filter blur-[100px]"></div>
         <div className="absolute bottom-0 left-0 w-96 h-96 bg-crypto-blue/10 rounded-full filter blur-[100px]"></div>
       </div>
       
@@ -102,31 +102,31 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={feature.id} 
-              className={`feature-card bg-secondary border-gray-800 hover:border-crypto-purple transition-all duration-500 overflow-hidden group animate-fade-up animate-stagger-${(index % 4) + 1} cursor-pointer`}
+              className={`feature-card bg-gradient-to-b from-gray-900 to-black border-gray-800 hover:border-crypto-teal transition-all duration-500 overflow-hidden group animate-fade-up animate-stagger-${(index % 4) + 1} cursor-pointer shadow-lg shadow-black/20`}
               onClick={() => handleFeatureClick(feature.id)}
             >
               <CardContent className="p-8 relative">
                 <div className={`feature-icon-container mb-6 p-3 rounded-full bg-gray-800/50 inline-block from-${feature.color}`}>
                   {feature.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-gradient transition-all duration-300">{feature.title}</h3>
+                <h3 className="text-xl font-bold mb-3 text-white group-hover:text-crypto-teal transition-all duration-300">{feature.title}</h3>
                 <p className="text-gray-300">{feature.description}</p>
                 <Button 
                   variant="ghost" 
-                  className="mt-4 p-0 h-auto text-crypto-purple hover:text-crypto-light-purple hover:bg-transparent"
+                  className="mt-4 p-0 h-auto text-crypto-teal hover:text-crypto-light-teal hover:bg-transparent"
                 >
                   <span className="mr-2">Learn more</span>
                   <ArrowRight className="h-4 w-4" />
                 </Button>
                 
-                <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-crypto-purple/5 rounded-full group-hover:bg-crypto-purple/10 transition-all duration-500"></div>
+                <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-crypto-teal/5 rounded-full group-hover:bg-crypto-teal/10 transition-all duration-500"></div>
               </CardContent>
             </Card>
           ))}
         </div>
         
         <div className="mt-24 animate-fade-up">
-          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gradient-2">Accepted Everywhere</h3>
+          <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gradient">Accepted Everywhere</h3>
           <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
             {paymentNetworks.map((network, index) => (
               <div 

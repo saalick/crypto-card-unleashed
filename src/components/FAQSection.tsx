@@ -20,8 +20,8 @@ const FAQSection = () => {
   const generalFaqs = [
     {
       id: "faq-1",
-      question: "How does CryptoCard work?",
-      answer: "CryptoCard allows you to spend your cryptocurrency like traditional money. When you make a purchase, our system converts your crypto to the local currency in real-time at the best available exchange rate, making the transaction seamless for merchants."
+      question: "How does DGNPay Card work?",
+      answer: "DGNPay Card allows you to spend your cryptocurrency like traditional money. When you make a purchase, our system converts your crypto to the local currency in real-time at the best available exchange rate, making the transaction seamless for merchants."
     },
     {
       id: "faq-2",
@@ -30,15 +30,15 @@ const FAQSection = () => {
     },
     {
       id: "faq-3",
-      question: "Is CryptoCard available worldwide?",
-      answer: "We're launching CryptoCard in phases. Initially, we'll be available in select countries in North America and Europe, with plans to expand globally as regulatory frameworks permit."
+      question: "Is DGNPay Card available worldwide?",
+      answer: "We're launching DGNPay Card in phases. Initially, we'll be available in select countries in North America and Europe, with plans to expand globally as regulatory frameworks permit."
     },
   ];
 
   const securityFaqs = [
     {
       id: "sec-1",
-      question: "How secure is CryptoCard?",
+      question: "How secure is DGNPay Card?",
       answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our cards include standard fraud protection features."
     },
     {
@@ -52,7 +52,7 @@ const FAQSection = () => {
     {
       id: "price-1",
       question: "Are there any fees involved?",
-      answer: "CryptoCard has a transparent fee structure with no hidden charges. There's a small conversion fee when your crypto is exchanged for fiat currency. Premium tiers offer reduced fees and additional benefits."
+      answer: "DGNPay Card has a transparent fee structure with no hidden charges. There's a small conversion fee when your crypto is exchanged for fiat currency. Premium tiers offer reduced fees and additional benefits."
     },
     {
       id: "price-2",
@@ -91,7 +91,7 @@ const FAQSection = () => {
   return (
     <section id="faq" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-0 left-1/4 w-96 h-96 bg-crypto-purple/10 rounded-full filter blur-[80px]"></div>
+        <div className="absolute top-0 left-1/4 w-96 h-96 bg-crypto-teal/10 rounded-full filter blur-[80px]"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-crypto-blue/10 rounded-full filter blur-[80px]"></div>
       </div>
       
@@ -99,17 +99,17 @@ const FAQSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Frequently Asked Questions</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Have questions about CryptoCard? We've got answers.
+            Have questions about DGNPay Card? We've got answers.
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-secondary/50 backdrop-blur-lg rounded-xl p-6 md:p-8 border border-white/10 shadow-xl relative z-10">
+        <div className="max-w-4xl mx-auto bg-gradient-to-b from-gray-900 to-black backdrop-blur-lg rounded-xl p-6 md:p-8 border border-gray-800 shadow-xl relative z-10">
           <Tabs defaultValue="general" value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex justify-center mb-8">
               <TabsList className="bg-background/50 backdrop-blur-sm p-1 rounded-full">
                 <TabsTrigger 
                   value="general" 
-                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300 cursor-pointer"
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-teal data-[state=active]:text-black transition-all duration-300 cursor-pointer"
                 >
                   <motion.div
                     variants={tabVariants}
@@ -120,7 +120,7 @@ const FAQSection = () => {
                 </TabsTrigger>
                 <TabsTrigger 
                   value="security" 
-                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300 cursor-pointer"
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-teal data-[state=active]:text-black transition-all duration-300 cursor-pointer"
                 >
                   <motion.div
                     variants={tabVariants}
@@ -131,7 +131,7 @@ const FAQSection = () => {
                 </TabsTrigger>
                 <TabsTrigger 
                   value="pricing" 
-                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300 cursor-pointer"
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-teal data-[state=active]:text-black transition-all duration-300 cursor-pointer"
                 >
                   <motion.div
                     variants={tabVariants}
@@ -158,11 +158,11 @@ const FAQSection = () => {
                     >
                       <AccordionItem 
                         value={faq.id}
-                        className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
+                        className="border border-gray-800 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
                         <AccordionTrigger className="px-6 py-4 hover:no-underline group cursor-pointer">
                           <div className="flex items-center">
-                            <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
+                            <span className="text-left font-medium text-lg group-hover:text-crypto-teal transition-colors duration-300">{faq.question}</span>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4 text-gray-300">
@@ -190,11 +190,11 @@ const FAQSection = () => {
                     >
                       <AccordionItem 
                         value={faq.id}
-                        className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
+                        className="border border-gray-800 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
                         <AccordionTrigger className="px-6 py-4 hover:no-underline group cursor-pointer">
                           <div className="flex items-center">
-                            <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
+                            <span className="text-left font-medium text-lg group-hover:text-crypto-teal transition-colors duration-300">{faq.question}</span>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4 text-gray-300">
@@ -222,11 +222,11 @@ const FAQSection = () => {
                     >
                       <AccordionItem 
                         value={faq.id}
-                        className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
+                        className="border border-gray-800 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
                         <AccordionTrigger className="px-6 py-4 hover:no-underline group cursor-pointer">
                           <div className="flex items-center">
-                            <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
+                            <span className="text-left font-medium text-lg group-hover:text-crypto-teal transition-colors duration-300">{faq.question}</span>
                           </div>
                         </AccordionTrigger>
                         <AccordionContent className="px-6 pb-4 text-gray-300">
@@ -244,7 +244,7 @@ const FAQSection = () => {
             <p className="text-gray-300 mb-4">
               Still have questions?
             </p>
-            <a href="#" className="inline-flex items-center text-crypto-purple hover:text-crypto-light-purple font-medium group">
+            <a href="#" className="inline-flex items-center text-crypto-teal hover:text-crypto-light-teal font-medium group">
               <span>Contact our support team</span>
               <svg 
                 className="ml-2 w-5 h-5 transform transition-transform duration-300 group-hover:translate-x-1" 
