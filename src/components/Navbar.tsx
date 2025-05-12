@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -29,15 +28,12 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="flex items-center">
-              <div className="w-12 h-12 rounded-full mr-3 flex items-center justify-center overflow-hidden bg-white/10 p-1">
-                <img 
-                  src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                  alt="DGNPay Logo" 
-                  className="w-10 h-10 object-contain"
-                />
-              </div>
-              <div className="text-2xl font-bold text-gradient">DGNPay</div>
+            <div className="h-10 mr-2">
+              <img 
+                src="https://i.ibb.co/ksthtgYs/Screenshot-2025-05-12-at-11-45-08-PM.png" 
+                alt="DGNPay Logo" 
+                className="h-full object-contain"
+              />
             </div>
           </div>
           

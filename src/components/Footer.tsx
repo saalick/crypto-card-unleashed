@@ -9,14 +9,13 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center mb-4">
-              <div className="w-10 h-10 rounded-full bg-white/10 overflow-hidden flex items-center justify-center p-1 mr-2">
+              <div className="h-10 mr-2">
                 <img 
-                  src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                  src="https://i.ibb.co/ksthtgYs/Screenshot-2025-05-12-at-11-45-08-PM.png" 
                   alt="DGNPay Logo" 
-                  className="w-8 h-8 object-contain"
+                  className="h-full object-contain"
                 />
               </div>
-              <div className="text-2xl font-bold text-gradient">DGNPay</div>
             </div>
             <p className="text-gray-400 mb-4">
               The next generation of crypto payments. Spend your digital assets anywhere, anytime.
