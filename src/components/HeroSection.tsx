@@ -1,3 +1,4 @@
+
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
@@ -32,11 +33,17 @@ const HeroSection = () => {
   };
   
   const scrollToWhitelist = () => {
-    document.getElementById('whitelist')?.scrollIntoView({ behavior: 'smooth' });
+    const whitelistSection = document.getElementById('whitelist');
+    if (whitelistSection) {
+      whitelistSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
   
   const scrollToFeatures = () => {
-    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
+    const featuresSection = document.getElementById('features');
+    if (featuresSection) {
+      featuresSection.scrollIntoView({ behavior: 'smooth' });
+    }
   };
 
   useEffect(() => {
