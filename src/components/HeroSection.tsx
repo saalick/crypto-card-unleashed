@@ -1,4 +1,3 @@
-
 import { useState, useEffect, useRef } from "react";
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
@@ -101,7 +100,7 @@ const HeroSection = () => {
               The next-gen card that lets you spend your cryptocurrency anywhere, anytime. Just like traditional money, but better.
             </p>
             
-            {/* Replaced "Powered by Visa" with "No KYC Required" */}
+            {/* No KYC Required badge */}
             <div className="mb-8 flex items-center">
               <div className="bg-black/40 p-4 rounded-xl border border-gray-800 flex items-center">
                 <span className="text-gray-300 mr-2">No KYC Required</span>
@@ -110,7 +109,6 @@ const HeroSection = () => {
             </div>
             
             <div className="mt-8 flex items-center">
-              {/* Removed the numbered circles */}
               <p className="text-gray-300">
                 <span className="font-semibold text-white">1,200+</span> already on the waitlist
               </p>
@@ -141,12 +139,15 @@ const HeroSection = () => {
                       <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                         <div className="flex justify-between items-center">
                           <div className="text-sm font-medium text-gray-300">DGNPay</div>
-                          <div className="w-12 h-12 rounded-full bg-white/10 overflow-hidden p-1">
-                            <img 
-                              src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                              alt="DGNPay Logo" 
-                              className="w-full h-full object-contain"
-                            />
+                          {/* Moved Visa logo to the top right */}
+                          <div className="w-12 h-8 flex items-center justify-center">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
+                              <path d="M14.219 24.583h-3.609l2.254-13.916h3.609L14.219 24.583z" fill="#00579F"/>
+                              <path d="M26.504 10.957c-0.712-0.279-1.832-0.583-3.225-0.583-3.555 0-6.056 1.89-6.075 4.594-0.033 1.997 1.793 3.103 3.158 3.765 1.397 0.68 1.87 1.122 1.87 1.729-0.019 0.932-1.125 1.359-2.158 1.359-1.435 0-2.208-0.214-3.375-0.729l-0.469-0.224-0.506 3.12c0.844 0.388 2.4 0.729 4.012 0.747 3.781 0 6.225-1.865 6.262-4.74 0.019-1.579-0.937-2.785-3-3.772-1.25-0.64-2.012-1.064-2.012-1.714 0.019-0.582 0.637-1.19 2.025-1.19 1.15-0.019 1.982 0.243 2.625 0.524l0.319 0.157 0.469-3.043z" fill="#00579F"/>
+                              <path d="M30.559 20.273c0.281-0.757 1.369-3.684 1.369-3.684-0.019 0.034 0.281-0.766 0.45-1.258l0.227 1.122c0 0 0.653 3.164 0.79 3.82h-2.836zm4.219-9.606h-2.781c-0.862 0-1.5 0.243-1.875 1.14l-5.325 12.776h3.769s0.618-1.714 0.75-2.08h4.594c0.113 0.495 0.431 2.08 0.431 2.08h3.329l-2.874-13.916h-0.019z" fill="#00579F"/>
+                              <path d="M9.75 10.667l-3.52 9.443-0.375-1.886c-0.656-2.23-2.7-4.648-4.998-5.856l3.225 12.197h3.806l5.644-13.898H9.75z" fill="#00579F"/>
+                              <path d="M5.514 10.667H0.057l-0.038 0.243c4.2 1.07 6.975 3.648 8.119 6.743l-1.163-5.876c-0.206-0.826-0.788-1.07-1.462-1.11z" fill="#FAA61A"/>
+                            </svg>
                           </div>
                         </div>
                         
@@ -161,25 +162,14 @@ const HeroSection = () => {
                               <div className="text-xs text-gray-400">NAME</div>
                               <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
                             </div>
-                            {/* Added Visa logo here */}
-                            <div className="flex items-end">
-                              <div className="w-10 h-10 md:w-12 md:h-12">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
-                                  <path d="M14.219 24.583h-3.609l2.254-13.916h3.609L14.219 24.583z" fill="#00579F"/>
-                                  <path d="M26.504 10.957c-0.712-0.279-1.832-0.583-3.225-0.583-3.555 0-6.056 1.89-6.075 4.594-0.033 1.997 1.793 3.103 3.158 3.765 1.397 0.68 1.87 1.122 1.87 1.729-0.019 0.932-1.125 1.359-2.158 1.359-1.435 0-2.208-0.214-3.375-0.729l-0.469-0.224-0.506 3.12c0.844 0.388 2.4 0.729 4.012 0.747 3.781 0 6.225-1.865 6.262-4.74 0.019-1.579-0.937-2.785-3-3.772-1.25-0.64-2.012-1.064-2.012-1.714 0.019-0.582 0.637-1.19 2.025-1.19 1.15-0.019 1.982 0.243 2.625 0.524l0.319 0.157 0.469-3.043z" fill="#00579F"/>
-                                  <path d="M30.559 20.273c0.281-0.757 1.369-3.684 1.369-3.684-0.019 0.034 0.281-0.766 0.45-1.258l0.227 1.122c0 0 0.653 3.164 0.79 3.82h-2.836zm4.219-9.606h-2.781c-0.862 0-1.5 0.243-1.875 1.14l-5.325 12.776h3.769s0.618-1.714 0.75-2.08h4.594c0.113 0.495 0.431 2.08 0.431 2.08h3.329l-2.874-13.916h-0.019z" fill="#00579F"/>
-                                  <path d="M9.75 10.667l-3.52 9.443-0.375-1.886c-0.656-2.23-2.7-4.648-4.998-5.856l3.225 12.197h3.806l5.644-13.898H9.75z" fill="#00579F"/>
-                                  <path d="M5.514 10.667H0.057l-0.038 0.243c4.2 1.07 6.975 3.648 8.119 6.743l-1.163-5.876c-0.206-0.826-0.788-1.07-1.462-1.11z" fill="#FAA61A"/>
-                                </svg>
-                              </div>
-                            </div>
+                            {/* Removed the Visa logo from here since we moved it to the top */}
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Back of card */}
+                  {/* Keep the back of card code the same */}
                   <div className="credit-card-back absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
                     <div className="absolute inset-0 bg-gradient-to-r from-crypto-blue to-crypto-purple rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
                     <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-blue via-crypto-purple to-crypto-orange overflow-hidden">
@@ -208,6 +198,7 @@ const HeroSection = () => {
                 </div>
               </div>
               
+              {/* Keep the decorative elements the same */}
               <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-crypto-green rounded-full blur-xl animate-pulse-soft opacity-30"></div>
               <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-crypto-orange rounded-full blur-xl animate-pulse-soft opacity-30"></div>
               
@@ -235,7 +226,7 @@ const HeroSection = () => {
         </div>
       </div>
       
-      {/* Background decorative elements */}
+      {/* Keep background decorative elements the same */}
       <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
         <div className="absolute top-10 left-10 w-60 h-60 bg-crypto-purple/20 rounded-full filter blur-[100px]"></div>
         <div className="absolute bottom-10 right-10 w-60 h-60 bg-crypto-blue/20 rounded-full filter blur-[100px]"></div>
