@@ -1,14 +1,13 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
+  const [isFlipped, setIsFlipped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
-  const navigate = useNavigate();
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current || !containerRef.current) return;
@@ -31,8 +30,12 @@ const HeroSection = () => {
     setRotateX(0);
     setRotateY(0);
   };
+
+  const handleCardClick = () => {
+    setIsFlipped(!isFlipped);
+  };
   
-  // Updated button handlers that directly work with the DOM
+  // Fixed button handlers to ensure proper scrolling functionality
   const handleWhitelistClick = () => {
     const whitelistSection = document.getElementById('whitelist');
     if (whitelistSection) {
@@ -131,45 +134,78 @@ const HeroSection = () => {
             <div className="relative">
               <div 
                 ref={cardRef}
-                className="credit-card w-80 h-48 md:w-[28rem] md:h-64 mx-auto rounded-2xl card-3d-effect"
+                className={`credit-card w-80 h-48 md:w-[28rem] md:h-64 mx-auto rounded-2xl perspective-1000 cursor-pointer ${isFlipped ? 'flipped' : ''}`}
                 style={{
                   transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
                 }}
+                onClick={handleCardClick}
               >
-                <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
-                <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-purple via-crypto-blue to-crypto-green overflow-hidden">
-                  <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
-                  <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
-                    <div className="flex justify-between">
-                      <div className="text-sm font-medium text-gray-300">DGNPay</div>
-                      <div className="w-12 h-12 rounded-full bg-white/10 overflow-hidden p-1">
-                        <img 
-                          src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                          alt="DGNPay Logo" 
-                          className="w-full h-full object-contain"
-                        />
+                <div className="credit-card-inner w-full h-full transition-transform duration-700" style={{ transformStyle: "preserve-3d", transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0)' }}>
+                  {/* Front of card */}
+                  <div className="credit-card-front absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden" }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
+                    <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-purple via-crypto-blue to-crypto-green overflow-hidden">
+                      <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
+                      <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
+                        <div className="flex justify-between">
+                          <div className="text-sm font-medium text-gray-300">DGNPay</div>
+                          <div className="w-12 h-12 rounded-full bg-white/10 overflow-hidden p-1">
+                            <img 
+                              src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                              alt="DGNPay Logo" 
+                              className="w-full h-full object-contain"
+                            />
+                          </div>
+                        </div>
+                        
+                        <div className="flex flex-col space-y-4">
+                          <div className="text-xl md:text-2xl font-mono tracking-widest">•••• •••• •••• 3456</div>
+                          <div className="flex justify-between">
+                            <div>
+                              <div className="text-xs text-gray-400">VALID THRU</div>
+                              <div className="text-sm md:text-base">09/28</div>
+                            </div>
+                            <div>
+                              <div className="text-xs text-gray-400">NAME</div>
+                              <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
+                            </div>
+                            <div className="flex items-end">
+                              <div className="w-8 h-8 md:w-10 md:h-10">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                                  <circle cx="8" cy="12" r="2" fill="white" />
+                                  <circle cx="16" cy="12" r="2" fill="white" />
+                                </svg>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
                       </div>
                     </div>
-                    
-                    <div className="flex flex-col space-y-4">
-                      <div className="text-xl md:text-2xl font-mono tracking-widest">•••• •••• •••• 3456</div>
-                      <div className="flex justify-between">
-                        <div>
-                          <div className="text-xs text-gray-400">VALID THRU</div>
-                          <div className="text-sm md:text-base">09/28</div>
-                        </div>
-                        <div>
-                          <div className="text-xs text-gray-400">NAME</div>
-                          <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
-                        </div>
-                        <div className="flex items-end">
-                          <div className="w-8 h-8 md:w-10 md:h-10">
-                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
-                              <circle cx="8" cy="12" r="2" fill="white" />
-                              <circle cx="16" cy="12" r="2" fill="white" />
-                            </svg>
+                  </div>
+                  
+                  {/* Back of card */}
+                  <div className="credit-card-back absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
+                    <div className="absolute inset-0 bg-gradient-to-r from-crypto-blue to-crypto-purple rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
+                    <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-blue via-crypto-purple to-crypto-orange overflow-hidden">
+                      <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
+                        <div className="w-full h-12 bg-gray-800/50 mt-4 rounded"></div>
+                        <div className="flex flex-col space-y-4 mt-4">
+                          <div className="flex justify-end">
+                            <div className="bg-gray-700/50 w-16 h-8 rounded flex items-center justify-center text-xs font-mono">CVV</div>
                           </div>
+                          <div className="flex items-center justify-center mt-4">
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue p-1 animate-spin-slow">
+                              <div className="w-full h-full rounded-full bg-black/80 flex items-center justify-center">
+                                <img 
+                                  src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                                  alt="DGNPay Logo" 
+                                  className="w-10 h-10 object-contain"
+                                />
+                              </div>
+                            </div>
+                          </div>
+                          <div className="text-center text-xs text-gray-400 mt-2">Tap card to flip</div>
                         </div>
                       </div>
                     </div>

@@ -157,6 +157,15 @@
   .card-3d-effect:hover .card-3d-content {
     transform: rotateY(5deg) rotateX(5deg);
   }
+  
+  /* Card flip animation */
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+  
+  .backface-hidden {
+    backface-visibility: hidden;
+  }
 }
 
 @keyframes float {
