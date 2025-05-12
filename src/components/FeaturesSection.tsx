@@ -48,13 +48,33 @@ const FeaturesSection = () => {
     },
   ];
 
-  // Updated payment networks that accept DGNPay
+  // Updated payment networks that accept DGNPay with more reliable logo sources
   const paymentNetworks = [
-    { name: "Apple", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg", class: "h-10 w-10" },
-    { name: "Amazon", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg", class: "h-10 w-10" },
-    { name: "Visa", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visa/visa-original.svg", class: "h-12 w-20" },
-    { name: "Mastercard", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mastercard/mastercard-original.svg", class: "h-12 w-20" },
-    { name: "Walmart", logo: "https://i.imgur.com/Bcg0PL3.png", class: "h-10 w-16 brightness-200" }
+    { 
+      name: "Apple", 
+      logo: "https://www.apple.com/ac/structured-data/images/knowledge_graph_logo.png", 
+      class: "h-10 w-auto" 
+    },
+    { 
+      name: "Amazon", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/a9/Amazon_logo.svg/2560px-Amazon_logo.svg.png", 
+      class: "h-8 w-auto" 
+    },
+    { 
+      name: "Visa", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png", 
+      class: "h-8 w-auto" 
+    },
+    { 
+      name: "Mastercard", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png", 
+      class: "h-10 w-auto" 
+    },
+    { 
+      name: "Walmart", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/1280px-Walmart_logo.svg.png", 
+      class: "h-8 w-auto" 
+    }
   ];
 
   return (
@@ -100,7 +120,7 @@ const FeaturesSection = () => {
             {paymentNetworks.map((network, index) => (
               <div 
                 key={network.name} 
-                className="p-4 md:p-6 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft"
+                className="p-4 md:p-6 bg-white backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft"
                 style={{animationDelay: `${index * 0.2}s`}}
               >
                 <img 
