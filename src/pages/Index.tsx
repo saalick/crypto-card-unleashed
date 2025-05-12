@@ -1,3 +1,4 @@
+
 import { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -56,7 +57,7 @@ const Index = () => {
       observerRef.current?.observe(el);
     });
 
-    // Create floating particles
+    // Create floating particles without blocking interaction
     createParticles();
 
     return () => {
@@ -75,11 +76,15 @@ const Index = () => {
   const createParticles = () => {
     const container = document.createElement('div');
     container.className = 'particles-container';
+    container.style.pointerEvents = 'none'; // Ensure particles don't block interactions
+    container.style.position = 'fixed';
+    container.style.zIndex = '1';
     document.body.appendChild(container);
     
     for (let i = 0; i < 20; i++) {
       const particle = document.createElement('div');
       particle.className = 'particle';
+      particle.style.pointerEvents = 'none'; // Ensure particles don't block interactions
       
       // Random properties
       const size = Math.random() * 8 + 2;

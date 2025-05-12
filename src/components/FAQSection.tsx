@@ -95,7 +95,7 @@ const FAQSection = () => {
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-crypto-blue/10 rounded-full filter blur-[80px]"></div>
       </div>
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Frequently Asked Questions</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
@@ -103,13 +103,13 @@ const FAQSection = () => {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto bg-secondary/50 backdrop-blur-lg rounded-xl p-6 md:p-8 border border-white/10 shadow-xl">
+        <div className="max-w-4xl mx-auto bg-secondary/50 backdrop-blur-lg rounded-xl p-6 md:p-8 border border-white/10 shadow-xl relative z-10">
           <Tabs defaultValue="general" value={activeTab} onValueChange={setActiveTab} className="w-full">
             <div className="flex justify-center mb-8">
               <TabsList className="bg-background/50 backdrop-blur-sm p-1 rounded-full">
                 <TabsTrigger 
                   value="general" 
-                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300"
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300 cursor-pointer"
                 >
                   <motion.div
                     variants={tabVariants}
@@ -120,7 +120,7 @@ const FAQSection = () => {
                 </TabsTrigger>
                 <TabsTrigger 
                   value="security" 
-                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300"
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300 cursor-pointer"
                 >
                   <motion.div
                     variants={tabVariants}
@@ -131,7 +131,7 @@ const FAQSection = () => {
                 </TabsTrigger>
                 <TabsTrigger 
                   value="pricing" 
-                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300"
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300 cursor-pointer"
                 >
                   <motion.div
                     variants={tabVariants}
@@ -160,7 +160,7 @@ const FAQSection = () => {
                         value={faq.id}
                         className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
-                        <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group cursor-pointer">
                           <div className="flex items-center">
                             <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
                           </div>
@@ -192,7 +192,7 @@ const FAQSection = () => {
                         value={faq.id}
                         className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
-                        <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group cursor-pointer">
                           <div className="flex items-center">
                             <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
                           </div>
@@ -224,7 +224,7 @@ const FAQSection = () => {
                         value={faq.id}
                         className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
-                        <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group cursor-pointer">
                           <div className="flex items-center">
                             <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
                           </div>

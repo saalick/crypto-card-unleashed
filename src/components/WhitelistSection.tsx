@@ -69,9 +69,9 @@ const WhitelistSection = () => {
         <div className="absolute top-0 left-0 w-96 h-96 bg-crypto-blue/15 rounded-full filter blur-[80px]"></div>
       </div>
       
-      <div className="container mx-auto px-4">
+      <div className="container mx-auto px-4 relative z-10">
         <div className="max-w-4xl mx-auto animate-fade-up">
-          <Card className="p-8 md:p-12 bg-gradient-to-br from-gray-900 to-black border border-gray-800 relative overflow-hidden card-3d-effect">
+          <Card className="p-8 md:p-12 bg-gradient-to-br from-gray-900 to-black border border-gray-800 relative overflow-hidden">
             <div className="absolute -top-40 -right-40 w-80 h-80 bg-crypto-purple/20 rounded-full filter blur-[80px]"></div>
             <div className="absolute -bottom-40 -left-40 w-80 h-80 bg-crypto-blue/20 rounded-full filter blur-[80px]"></div>
             
@@ -87,7 +87,7 @@ const WhitelistSection = () => {
               </p>
             </div>
             
-            <div className="card-3d-content">
+            <div className="relative z-20">
               {!isSuccess ? (
                 <Form {...form}>
                   <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6 max-w-lg mx-auto">
@@ -101,7 +101,7 @@ const WhitelistSection = () => {
                               <div className="relative flex-1">
                                 <Input 
                                   placeholder="Enter your email" 
-                                  className="bg-gray-800 border-gray-700 h-14 pr-12 focus:border-crypto-purple text-white text-lg" 
+                                  className="bg-gray-800 border-gray-700 h-14 pr-12 focus:border-crypto-purple text-white text-lg z-30" 
                                   {...field} 
                                 />
                                 <div className="absolute inset-y-0 right-0 flex items-center pr-3 pointer-events-none">
@@ -110,7 +110,7 @@ const WhitelistSection = () => {
                               </div>
                               <Button 
                                 type="submit" 
-                                className="ml-4 bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all h-14 px-8 shadow-lg shadow-crypto-purple/20" 
+                                className="ml-4 bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all h-14 px-8 shadow-lg shadow-crypto-purple/20 z-30" 
                                 disabled={isSubmitting}
                               >
                                 {isSubmitting ? (
@@ -156,7 +156,7 @@ const WhitelistSection = () => {
               )}
             </div>
             
-            <div className="mt-10 text-center text-sm text-gray-400 animate-fade-up">
+            <div className="mt-10 text-center text-sm text-gray-400 animate-fade-up relative z-10">
               By signing up, you agree to our Terms of Service and Privacy Policy.
               <div className="mt-4 flex flex-wrap justify-center gap-4">
                 <span className="flex items-center">
