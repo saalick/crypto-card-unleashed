@@ -1,7 +1,6 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { X } from "lucide-react";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Navbar = () => {
@@ -56,7 +55,11 @@ const Navbar = () => {
                     rel="noopener noreferrer"
                     className="text-white hover:text-crypto-purple transition-colors"
                   >
-                    <X className="w-5 h-5" />
+                    <img 
+                      src="https://loodibee.com/wp-content/uploads/Twitter-X-Logo.png" 
+                      alt="X Logo" 
+                      className="w-5 h-5"
+                    />
                   </a>
                 </TooltipTrigger>
                 <TooltipContent>
@@ -96,7 +99,11 @@ const Navbar = () => {
                 className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md flex items-center"
                 onClick={() => setIsMobileMenuOpen(false)}
               >
-                <X className="w-4 h-4 mr-2" />
+                <img 
+                  src="https://loodibee.com/wp-content/uploads/Twitter-X-Logo.png" 
+                  alt="X Logo" 
+                  className="w-4 h-4 mr-2"
+                />
                 Follow us on X
               </a>
               <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all w-full mt-2" onClick={() => setIsMobileMenuOpen(false)}>

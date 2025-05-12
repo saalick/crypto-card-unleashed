@@ -28,7 +28,11 @@ const Footer = () => {
             <div className="flex space-x-4">
               <a href="https://x.com/dgnpay" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-crypto-purple">
                 <span className="sr-only">X (Twitter)</span>
-                <X className="h-6 w-6" />
+                <img 
+                  src="https://loodibee.com/wp-content/uploads/Twitter-X-Logo.png" 
+                  alt="X Logo" 
+                  className="h-5 w-5"
+                />
               </a>
               <a href="#" className="text-gray-400 hover:text-crypto-purple">
                 <span className="sr-only">Discord</span>
