@@ -29,7 +29,7 @@ const Footer = () => {
               <a href="https://x.com/dgnpay" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-crypto-purple">
                 <span className="sr-only">X (Twitter)</span>
                 <img 
-                  src="https://loodibee.com/wp-content/uploads/Twitter-X-Logo.png" 
+                  src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" 
                   alt="X Logo" 
                   className="h-5 w-5"
                 />
