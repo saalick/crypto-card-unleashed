@@ -1,7 +1,7 @@
 
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
-import { Check } from "lucide-react";
+import { Check, CreditCard } from "lucide-react";
 
 const PricingSection = () => {
   const plans = [
@@ -17,7 +17,7 @@ const PricingSection = () => {
       ],
       cta: "Get Started",
       isPopular: false,
-      color: "from-crypto-teal to-crypto-light-teal"
+      accent: "border-gray-700"
     },
     {
       name: "Quant",
@@ -32,7 +32,7 @@ const PricingSection = () => {
       ],
       cta: "Join Waitlist",
       isPopular: true,
-      color: "from-crypto-teal to-crypto-gold"
+      accent: "border-crypto-teal"
     },
     {
       name: "Whale",
@@ -48,20 +48,21 @@ const PricingSection = () => {
       ],
       cta: "Contact Sales",
       isPopular: false,
-      color: "from-crypto-gold to-crypto-teal"
+      accent: "border-gray-700"
     }
   ];
 
   return (
-    <section id="pricing" className="py-24 relative wavy-bg flow-bg star-field">
+    <section id="pricing" className="py-24 relative">
+      {/* Subtle background gradients */}
       <div className="absolute inset-0 -z-10">
-        <div className="absolute top-1/2 right-0 w-96 h-96 bg-crypto-teal/5 rounded-full filter blur-[100px] transform -translate-y-1/2"></div>
-        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-crypto-gold/5 rounded-full filter blur-[100px] transform -translate-x-1/2"></div>
+        <div className="absolute top-1/2 right-0 w-96 h-96 bg-crypto-blue/10 rounded-full filter blur-[100px] transform -translate-y-1/2"></div>
+        <div className="absolute bottom-0 left-1/2 w-96 h-96 bg-crypto-purple/10 rounded-full filter blur-[100px] transform -translate-x-1/2"></div>
       </div>
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient text-glow">Simple, Transparent Pricing</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Simple, Transparent Pricing</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Choose the plan that fits your needs. No hidden fees or long-term commitments.
           </p>
@@ -71,34 +72,35 @@ const PricingSection = () => {
           {plans.map((plan, index) => (
             <Card 
               key={index} 
-              className={`pricing-card wavy-border relative overflow-hidden animate-fade-up animate-stagger-${index + 1} ${
-                plan.isPopular ? 'border-crypto-teal ring-2 ring-crypto-teal/50 shadow-neon-sm z-10 lg:scale-105' : 'border-gray-800'
-              } bg-crypto-navy bg-opacity-80 backdrop-blur-sm`}
+              className={`pricing-card relative overflow-hidden animate-fade-up animate-stagger-${index + 1} 
+                ${plan.isPopular ? 'border-crypto-teal shadow-lg shadow-crypto-teal/10 z-10 lg:scale-105' : 'border-gray-800'}
+                bg-gradient-to-b from-gray-900 to-black`}
             >
               {plan.isPopular && (
                 <div className="absolute top-0 right-0">
-                  <div className="bg-crypto-teal text-black text-xs font-semibold px-4 py-2 rounded-bl-lg shadow-lg">
+                  <div className="bg-crypto-teal text-black text-xs font-semibold px-4 py-2 rounded-bl-lg">
                     Most Popular
                   </div>
                 </div>
               )}
               
-              <div className="p-6 md:p-8 relative">
-                <div className="mb-8 text-center">
-                  <h3 className="text-2xl font-semibold mb-2 text-glow">{plan.name}</h3>
+              <div className="p-6 md:p-8">
+                <div className="mb-8">
+                  <div className={`mb-4 inline-flex items-center justify-center w-12 h-12 rounded-full ${plan.isPopular ? 'bg-crypto-teal/20' : 'bg-gray-800'}`}>
+                    <CreditCard className={`h-6 w-6 ${plan.isPopular ? 'text-crypto-teal' : 'text-gray-400'}`} />
+                  </div>
+                  <h3 className="text-2xl font-semibold mb-2 text-white">{plan.name}</h3>
                   <div className="mb-4">
-                    <span className="text-4xl font-bold text-gradient">{plan.price}</span>
+                    <span className={`text-4xl font-bold ${plan.isPopular ? 'text-crypto-teal' : 'text-white'}`}>{plan.price}</span>
                   </div>
                 </div>
                 
                 <div className="mb-8">
                   <ul className="space-y-4">
                     {plan.features.map((feature, i) => (
-                      <li key={i} className="flex items-start animate-wave" style={{animationDelay: `${i * 0.1}s`}}>
-                        <div className={`p-0.5 rounded-full bg-gradient-to-r ${plan.color} mr-3 mt-1`}>
-                          <div className="bg-crypto-navy rounded-full p-0.5">
-                            <Check className="h-3 w-3 text-white" />
-                          </div>
+                      <li key={i} className="flex items-start">
+                        <div className={`rounded-full p-1 mr-3 mt-0.5 ${plan.isPopular ? 'bg-crypto-teal/20 text-crypto-teal' : 'bg-gray-800/50 text-gray-400'}`}>
+                          <Check className="h-3 w-3" />
                         </div>
                         <span className="text-gray-300">{feature}</span>
                       </li>
@@ -109,16 +111,16 @@ const PricingSection = () => {
                 <Button 
                   className={`w-full ${
                     plan.isPopular 
-                      ? 'bg-gradient-to-r from-crypto-teal to-crypto-light-teal hover:opacity-90 shadow-neon' 
-                      : 'bg-secondary hover:bg-opacity-80'
-                  } py-6 font-medium`}
+                      ? 'bg-crypto-teal hover:bg-crypto-teal/90 text-black' 
+                      : 'bg-gray-800 hover:bg-gray-700 text-white'
+                  } font-medium`}
                 >
                   {plan.cta}
                 </Button>
               </div>
               
-              <div className="absolute -bottom-16 -right-16 w-32 h-32 bg-gradient-to-r from-crypto-teal/10 to-crypto-gold/10 rounded-full blur-2xl"></div>
-              <div className="sparkle absolute inset-0 pointer-events-none"></div>
+              {/* Subtle accent at the bottom */}
+              <div className={`h-1 w-full ${plan.isPopular ? 'bg-crypto-teal/30' : 'bg-gray-800'}`}></div>
             </Card>
           ))}
         </div>
