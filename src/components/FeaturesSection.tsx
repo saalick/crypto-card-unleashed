@@ -48,13 +48,13 @@ const FeaturesSection = () => {
     },
   ];
 
-  // Payment networks that accept CryptoCard
+  // Updated payment networks that accept DGNPay
   const paymentNetworks = [
-    { name: "Visa", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visa/visa-original.svg", class: "h-10 w-20" },
-    { name: "Mastercard", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mastercard/mastercard-original.svg", class: "h-10 w-16" },
-    { name: "Apple Pay", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg", class: "h-8 w-8" },
-    { name: "Google Pay", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/google/google-original.svg", class: "h-8 w-8" },
-    { name: "PayPal", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/paypal/paypal-original.svg", class: "h-8 w-16" }
+    { name: "Apple", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apple/apple-original.svg", class: "h-10 w-10" },
+    { name: "Amazon", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/amazonwebservices/amazonwebservices-original.svg", class: "h-10 w-10" },
+    { name: "Visa", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/visa/visa-original.svg", class: "h-12 w-20" },
+    { name: "Mastercard", logo: "https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/mastercard/mastercard-original.svg", class: "h-12 w-20" },
+    { name: "Walmart", logo: "https://i.imgur.com/Bcg0PL3.png", class: "h-10 w-16 brightness-200" }
   ];
 
   return (
@@ -68,7 +68,7 @@ const FeaturesSection = () => {
         <div className="text-center mb-16 animate-fade-up">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Revolutionary Features</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            CryptoCard bridges the gap between digital assets and everyday spending with cutting-edge technology.
+            DGNPay bridges the gap between digital assets and everyday spending with cutting-edge technology.
           </p>
         </div>
 
@@ -96,11 +96,11 @@ const FeaturesSection = () => {
         
         <div className="mt-24 animate-fade-up">
           <h3 className="text-2xl md:text-3xl font-bold mb-8 text-gradient-2">Accepted Everywhere</h3>
-          <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16">
+          <div className="flex flex-wrap justify-center items-center gap-6 md:gap-12">
             {paymentNetworks.map((network, index) => (
               <div 
                 key={network.name} 
-                className="h-16 w-40 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft"
+                className="p-4 md:p-6 bg-white/10 backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft"
                 style={{animationDelay: `${index * 0.2}s`}}
               >
                 <img 
