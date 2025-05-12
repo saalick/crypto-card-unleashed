@@ -157,6 +157,20 @@
   .card-3d-effect:hover .card-3d-content {
     transform: rotateY(5deg) rotateX(5deg);
   }
+  
+  .backface-hidden {
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+  }
+  
+  .card-flip {
+    transition: transform 0.8s;
+    transform-style: preserve-3d;
+  }
+  
+  .card-flip-back {
+    transform: rotateY(180deg);
+  }
 }
 
 @keyframes float {
