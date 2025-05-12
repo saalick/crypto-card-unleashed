@@ -64,17 +64,17 @@ const FeaturesSection = () => {
     },
     { 
       name: "Visa", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/5e/Visa_Inc._logo.svg/2560px-Visa_Inc._logo.svg.png", 
+      logo: "https://brandlogos.net/wp-content/uploads/2021/12/uber-brandlogo.net_.png", 
       class: "h-8 w-auto" 
     },
     { 
       name: "Mastercard", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/2/2a/Mastercard-logo.svg/1280px-Mastercard-logo.svg.png", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/a/a6/Logo_NIKE.svg", 
       class: "h-10 w-auto" 
     },
     { 
       name: "Walmart", 
-      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/Walmart_logo.svg/1280px-Walmart_logo.svg.png", 
+      logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Shopify_logo_2018.svg/1200px-Shopify_logo_2018.svg.png", 
       class: "h-8 w-auto" 
     }
   ];
