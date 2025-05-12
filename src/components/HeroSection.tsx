@@ -1,12 +1,14 @@
 
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const HeroSection = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
+  const navigate = useNavigate();
   
   const handleMouseMove = (e: React.MouseEvent<HTMLDivElement>) => {
     if (!cardRef.current || !containerRef.current) return;
@@ -28,6 +30,14 @@ const HeroSection = () => {
   const resetRotation = () => {
     setRotateX(0);
     setRotateY(0);
+  };
+  
+  const scrollToWhitelist = () => {
+    document.getElementById('whitelist')?.scrollIntoView({ behavior: 'smooth' });
+  };
+  
+  const scrollToFeatures = () => {
+    document.getElementById('features')?.scrollIntoView({ behavior: 'smooth' });
   };
 
   useEffect(() => {
@@ -79,10 +89,17 @@ const HeroSection = () => {
               The next-gen card that lets you spend your cryptocurrency anywhere, anytime. Just like traditional money, but better.
             </p>
             <div className="flex flex-col sm:flex-row gap-4">
-              <Button className="bg-crypto-purple hover:bg-crypto-light-purple text-lg py-6 px-8 shadow-lg shadow-crypto-purple/20 transition-all duration-300 hover:translate-y-[-2px]">
-                <a href="#whitelist">Join Whitelist</a>
+              <Button 
+                className="bg-crypto-purple hover:bg-crypto-light-purple text-lg py-6 px-8 shadow-lg shadow-crypto-purple/20 transition-all duration-300 hover:translate-y-[-2px]"
+                onClick={scrollToWhitelist}
+              >
+                Join Whitelist
               </Button>
-              <Button variant="outline" className="border-crypto-purple text-white hover:bg-crypto-purple/20 text-lg py-6 px-8 transition-all duration-300 hover:translate-y-[-2px]">
+              <Button 
+                variant="outline" 
+                className="border-crypto-purple text-white hover:bg-crypto-purple/20 text-lg py-6 px-8 transition-all duration-300 hover:translate-y-[-2px]"
+                onClick={scrollToFeatures}
+              >
                 Learn More
               </Button>
             </div>
@@ -136,7 +153,7 @@ const HeroSection = () => {
                         </div>
                         <div>
                           <div className="text-xs text-gray-400">NAME</div>
-                          <div className="text-sm md:text-base">CRYPTO USER</div>
+                          <div className="text-sm md:text-base">ALEX MORGAN</div>
                         </div>
                         <div className="flex items-end">
                           <div className="w-8 h-8 md:w-10 md:h-10">

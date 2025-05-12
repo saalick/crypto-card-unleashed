@@ -1,6 +1,8 @@
 
 import { Card, CardContent } from "@/components/ui/card";
 import { CreditCard, ArrowRight, Bitcoin, Shield, Globe, Clock } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { useNavigate } from "react-router-dom";
 
 const FeaturesSection = () => {
   const features = [
@@ -76,6 +78,10 @@ const FeaturesSection = () => {
       class: "h-8 w-auto" 
     }
   ];
+  
+  const handleFeatureClick = (featureId: number) => {
+    document.getElementById('whitelist')?.scrollIntoView({behavior: 'smooth'});
+  };
 
   return (
     <section id="features" className="py-24 relative">
@@ -96,7 +102,8 @@ const FeaturesSection = () => {
           {features.map((feature, index) => (
             <Card 
               key={feature.id} 
-              className={`feature-card bg-secondary border-gray-800 hover:border-crypto-purple transition-all duration-500 overflow-hidden group animate-fade-up animate-stagger-${(index % 4) + 1}`}
+              className={`feature-card bg-secondary border-gray-800 hover:border-crypto-purple transition-all duration-500 overflow-hidden group animate-fade-up animate-stagger-${(index % 4) + 1} cursor-pointer`}
+              onClick={() => handleFeatureClick(feature.id)}
             >
               <CardContent className="p-8 relative">
                 <div className={`feature-icon-container mb-6 p-3 rounded-full bg-gray-800/50 inline-block from-${feature.color}`}>
@@ -104,11 +111,15 @@ const FeaturesSection = () => {
                 </div>
                 <h3 className="text-xl font-bold mb-3 text-white group-hover:text-gradient transition-all duration-300">{feature.title}</h3>
                 <p className="text-gray-300">{feature.description}</p>
-                <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-crypto-purple/5 rounded-full group-hover:bg-crypto-purple/10 transition-all duration-500"></div>
+                <Button 
+                  variant="ghost" 
+                  className="mt-4 p-0 h-auto text-crypto-purple hover:text-crypto-light-purple hover:bg-transparent"
+                >
+                  <span className="mr-2">Learn more</span>
+                  <ArrowRight className="h-4 w-4" />
+                </Button>
                 
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
-                  <ArrowRight className="h-5 w-5 text-crypto-purple" />
-                </div>
+                <div className="absolute -bottom-20 -right-20 w-40 h-40 bg-crypto-purple/5 rounded-full group-hover:bg-crypto-purple/10 transition-all duration-500"></div>
               </CardContent>
             </Card>
           ))}
@@ -120,7 +131,7 @@ const FeaturesSection = () => {
             {paymentNetworks.map((network, index) => (
               <div 
                 key={network.name} 
-                className="p-4 md:p-6 bg-white backdrop-blur-md rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft"
+                className="p-4 md:p-6 bg-white rounded-lg flex items-center justify-center border border-white/20 hover:border-white/30 transition-all duration-300 animate-pulse-soft shadow-lg"
                 style={{animationDelay: `${index * 0.2}s`}}
               >
                 <img 

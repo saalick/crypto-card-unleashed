@@ -8,7 +8,7 @@ import { Form, FormControl, FormField, FormItem, FormMessage } from "@/component
 import { Input } from "@/components/ui/input";
 import { useToast } from "@/components/ui/use-toast";
 import { Card } from "@/components/ui/card";
-import { Mail, ArrowRight } from "lucide-react";
+import { Mail, ArrowRight, Check } from "lucide-react";
 
 const formSchema = z.object({
   email: z.string().email({ message: "Please enter a valid email address." }),
@@ -20,6 +20,7 @@ const WhitelistSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
+  const [joinedUsers, setJoinedUsers] = useState(2541);
 
   const form = useForm<FormValues>({
     resolver: zodResolver(formSchema),
@@ -43,6 +44,7 @@ const WhitelistSection = () => {
       });
       
       setIsSuccess(true);
+      setJoinedUsers(prev => prev + 1);
       form.reset();
     } catch (error) {
       console.error("Error submitting form:", error);
@@ -54,6 +56,10 @@ const WhitelistSection = () => {
     } finally {
       setIsSubmitting(false);
     }
+  };
+  
+  const handleTryAgain = () => {
+    setIsSuccess(false);
   };
 
   return (
@@ -131,21 +137,28 @@ const WhitelistSection = () => {
                   </form>
                 </Form>
               ) : (
-                <div className="bg-gray-800/50 rounded-xl p-6 max-w-lg mx-auto border border-gray-700 animate-fade-in animate-visible">
-                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-4 rounded-full bg-crypto-green/20 text-crypto-green">
-                    <svg className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M5 13l4 4L19 7"></path>
-                    </svg>
+                <div className="bg-gray-800/50 rounded-xl p-8 max-w-lg mx-auto border border-gray-700 animate-fade-in animate-visible">
+                  <div className="flex items-center justify-center w-16 h-16 mx-auto mb-6 rounded-full bg-crypto-green/20 text-crypto-green">
+                    <Check className="w-8 h-8" />
                   </div>
-                  <h3 className="text-xl font-medium text-white mb-2">You're on the list!</h3>
-                  <p className="text-gray-300">Thank you for joining our whitelist. We'll keep you updated with the latest news and launch information.</p>
+                  <h3 className="text-2xl font-medium text-white mb-4 text-center">You're on the list!</h3>
+                  <p className="text-gray-300 text-center mb-6">Thank you for joining our whitelist. We'll keep you updated with the latest news and launch information.</p>
+                  <div className="flex justify-center">
+                    <Button 
+                      variant="outline"
+                      className="border-crypto-purple text-white hover:bg-crypto-purple/20"
+                      onClick={handleTryAgain}
+                    >
+                      Add another email
+                    </Button>
+                  </div>
                 </div>
               )}
             </div>
             
             <div className="mt-10 text-center text-sm text-gray-400 animate-fade-up">
               By signing up, you agree to our Terms of Service and Privacy Policy.
-              <div className="mt-4 flex justify-center space-x-4">
+              <div className="mt-4 flex flex-wrap justify-center gap-4">
                 <span className="flex items-center">
                   <div className="w-3 h-3 rounded-full bg-crypto-green mr-2"></div>
                   <span>Bank-Grade Security</span>
@@ -164,7 +177,7 @@ const WhitelistSection = () => {
             <div className="absolute bottom-4 right-4 opacity-50">
               <div className="flex items-center space-x-1 text-xs">
                 <span className="w-2 h-2 rounded-full bg-crypto-green"></span>
-                <span className="animate-pulse">2,541 users joined</span>
+                <span className="animate-pulse">{joinedUsers} users joined</span>
               </div>
             </div>
           </Card>
