@@ -1,5 +1,8 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Twitter } from "lucide-react";
+import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Navbar = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -44,6 +47,23 @@ const Navbar = () => {
             <a href="#how-it-works" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">How It Works</a>
             <a href="#pricing" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Pricing</a>
             <a href="#faq" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">FAQ</a>
+            <TooltipProvider>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <a 
+                    href="https://x.com/dgnpay" 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="text-white hover:text-crypto-purple transition-colors"
+                  >
+                    <Twitter className="w-5 h-5" />
+                  </a>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>Follow us on X (Twitter)</p>
+                </TooltipContent>
+              </Tooltip>
+            </TooltipProvider>
             <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all shadow-lg shadow-crypto-purple/20">
               <a href="#whitelist">Join Whitelist</a>
             </Button>
@@ -69,6 +89,16 @@ const Navbar = () => {
               <a href="#how-it-works" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
               <a href="#pricing" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
               <a href="#faq" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+              <a 
+                href="https://x.com/dgnpay" 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md flex items-center"
+                onClick={() => setIsMobileMenuOpen(false)}
+              >
+                <Twitter className="w-4 h-4 mr-2" />
+                Follow us on X
+              </a>
               <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all w-full mt-2" onClick={() => setIsMobileMenuOpen(false)}>
                 <a href="#whitelist">Join Whitelist</a>
               </Button>
