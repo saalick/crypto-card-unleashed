@@ -64,12 +64,12 @@ export default {
 					ring: 'hsl(var(--sidebar-ring))'
 				},
 				crypto: {
-					purple: '#8B5CF6',
-					'light-purple': '#A78BFA',
-					blue: '#3B82F6',
-					'light-blue': '#60A5FA',
-					green: '#10B981',
-					orange: '#F97316'
+					purple: '#00E676', // Changed to mint green
+					'light-purple': '#69F0AE', // Lighter mint green
+					blue: '#00E676', // Changed to mint green
+					'light-blue': '#69F0AE', // Lighter mint green
+					green: '#00E676', // Mint green
+					orange: '#CD853F' // Bronze color
 				}
 			},
 			borderRadius: {
@@ -101,6 +101,12 @@ export default {
 				'shimmer': {
 					'0%': { backgroundPosition: '-200% 0' },
 					'100%': { backgroundPosition: '200% 0' }
+				},
+				'wave': {
+					'0%, 100%': { transform: 'translateY(0)' },
+					'25%': { transform: 'translateY(-5px)' },
+					'50%': { transform: 'translateY(0)' },
+					'75%': { transform: 'translateY(5px)' }
 				}
 			},
 			animation: {
@@ -109,7 +115,8 @@ export default {
 				'float': 'float 6s ease-in-out infinite',
 				'pulse-soft': 'pulse-soft 3s ease-in-out infinite',
 				'spin-slow': 'spin-slow 8s linear infinite',
-				'shimmer': 'shimmer 3s linear infinite'
+				'shimmer': 'shimmer 3s linear infinite',
+				'wave': 'wave 5s ease-in-out infinite'
 			},
 			backgroundImage: {
 				'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
