@@ -6,28 +6,30 @@ import { Check } from "lucide-react";
 const PricingSection = () => {
   const plans = [
     {
-      name: "Basic",
-      price: "Free",
+      name: "Trencher",
+      price: "$15/mo",
       features: [
-        "Virtual Crypto Card",
+        "Virtual DGNPay Card",
         "Bitcoin & Ethereum Support",
-        "Basic Exchange Rates",
-        "$1,000 Monthly Spending Limit",
+        "Standard Exchange Rates",
+        "$5,000 Monthly Deposit Limit",
         "Standard Support",
+        "Apple Wallet Integration",
       ],
-      cta: "Get Started",
+      cta: "Join Waitlist",
       isPopular: false,
       color: "from-gray-500 to-gray-700"
     },
     {
-      name: "Premium",
-      price: "$9.99/mo",
+      name: "Quant",
+      price: "$25/mo",
       features: [
         "Physical & Virtual Cards",
         "Support for 20+ Cryptocurrencies",
         "Premium Exchange Rates",
-        "$10,000 Monthly Spending Limit",
+        "$10,000 Monthly Deposit Limit",
         "Priority Support",
+        "Apple Wallet Integration",
         "Cashback Rewards",
       ],
       cta: "Join Waitlist",
@@ -35,18 +37,19 @@ const PricingSection = () => {
       color: "from-crypto-purple to-crypto-blue"
     },
     {
-      name: "Business",
-      price: "$29.99/mo",
+      name: "Whale",
+      price: "$60/mo",
       features: [
         "Multiple Cards Management",
         "All Cryptocurrencies Support",
         "Best Exchange Rates",
-        "Unlimited Monthly Spending",
+        "$20,000 Monthly Deposit Limit",
         "Dedicated Account Manager",
         "Enhanced Security Features",
         "Expense Management Tools",
+        "Premium Metal Card",
       ],
-      cta: "Contact Sales",
+      cta: "Join Waitlist",
       isPopular: false,
       color: "from-crypto-blue to-crypto-green"
     }
@@ -61,9 +64,9 @@ const PricingSection = () => {
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Simple, Transparent Pricing</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Choose Your Plan</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Choose the plan that fits your needs. No hidden fees or long-term commitments.
+            Select the tier that suits your crypto spending needs. No hidden fees or long-term commitments.
           </p>
         </div>
 

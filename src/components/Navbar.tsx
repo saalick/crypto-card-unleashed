@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -30,7 +31,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="h-10 mr-2">
               <img 
-                src="https://i.ibb.co/G47x2nDf/Screenshot-2025-05-12-at-11-45-08-PM-removebg-preview.png" 
+                src="https://i.ibb.co/ksthtgYs/Screenshot-2025-05-12-at-11-45-08-PM.png" 
                 alt="DGNPay Logo" 
                 className="h-full object-contain"
               />
@@ -52,7 +53,7 @@ const Navbar = () => {
                     className="text-white hover:text-crypto-purple transition-colors"
                   >
                     <img 
-                      src="https://upload.wikimedia.org/wikipedia/commons/5/57/X_logo_2023_%28white%29.png" 
+                      src="https://loodibee.com/wp-content/uploads/Twitter-X-Logo.png" 
                       alt="X Logo" 
                       className="w-5 h-5"
                     />
