@@ -1,4 +1,3 @@
-
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 
@@ -29,14 +28,14 @@ const Navbar = () => {
         <div className="flex items-center justify-between">
           <div className="flex items-center">
             <div className="flex items-center">
-              <div className="w-10 h-10 rounded-full mr-2 flex items-center justify-center overflow-hidden">
+              <div className="w-12 h-12 rounded-full mr-3 flex items-center justify-center overflow-hidden bg-white/10 p-1">
                 <img 
                   src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                  alt="DegenPay Logo" 
-                  className="w-full h-full object-contain"
+                  alt="DGNPay Logo" 
+                  className="w-10 h-10 object-contain"
                 />
               </div>
-              <div className="text-2xl font-bold text-gradient">DegenPay</div>
+              <div className="text-2xl font-bold text-gradient">DGNPay</div>
             </div>
           </div>
           

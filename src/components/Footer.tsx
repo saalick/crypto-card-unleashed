@@ -1,4 +1,3 @@
-
 const Footer = () => {
   const currentYear = new Date().getFullYear();
   
@@ -8,12 +7,14 @@ const Footer = () => {
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="flex items-center mb-4">
-              <img 
-                src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                alt="DegenPay Logo" 
-                className="w-8 h-8 mr-2"
-              />
-              <div className="text-2xl font-bold text-gradient">DegenPay</div>
+              <div className="w-10 h-10 rounded-full bg-white/10 overflow-hidden flex items-center justify-center p-1 mr-2">
+                <img 
+                  src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                  alt="DGNPay Logo" 
+                  className="w-8 h-8 object-contain"
+                />
+              </div>
+              <div className="text-2xl font-bold text-gradient">DGNPay</div>
             </div>
             <p className="text-gray-400 mb-4">
               The next generation of crypto payments. Spend your digital assets anywhere, anytime.
@@ -72,7 +73,7 @@ const Footer = () => {
         
         <div className="border-t border-gray-800 pt-8">
           <p className="text-gray-400 text-center">
-            © {currentYear} DegenPay. All rights reserved.
+            © {currentYear} DGNPay. All rights reserved.
           </p>
         </div>
       </div>

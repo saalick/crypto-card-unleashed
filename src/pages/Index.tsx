@@ -1,4 +1,3 @@
-
 import { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
@@ -13,7 +12,7 @@ const Index = () => {
   const observerRef = useRef<IntersectionObserver | null>(null);
 
   useEffect(() => {
-    document.title = "DegenPay - Spend Crypto Like Fiat";
+    document.title = "DGNPay - Spend Crypto Like Fiat";
     
     // Smooth scrolling for anchor links
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

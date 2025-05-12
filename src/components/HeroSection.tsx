@@ -117,11 +117,11 @@ const HeroSection = () => {
                   <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
                   <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                     <div className="flex justify-between">
-                      <div className="text-sm font-medium text-gray-300">DegenPay</div>
-                      <div className="w-12 h-12 rounded-full overflow-hidden">
+                      <div className="text-sm font-medium text-gray-300">DGNPay</div>
+                      <div className="w-12 h-12 rounded-full bg-white/10 overflow-hidden p-1">
                         <img 
                           src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                          alt="DegenPay Logo" 
+                          alt="DGNPay Logo" 
                           className="w-full h-full object-contain"
                         />
                       </div>
@@ -157,11 +157,11 @@ const HeroSection = () => {
               <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-crypto-orange rounded-full blur-xl animate-pulse-soft opacity-30"></div>
               
               <div className="absolute -bottom-4 right-8 w-20 h-20 md:w-32 md:h-32 rounded-lg bg-gradient-to-r from-crypto-blue to-crypto-green p-[2px] animate-float rotate-12 shadow-lg shadow-crypto-blue/20">
-                <div className="w-full h-full rounded-lg bg-black/90 flex items-center justify-center">
+                <div className="w-full h-full rounded-lg bg-black/90 flex items-center justify-center p-2">
                   <img 
                     src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
-                    alt="DegenPay Logo" 
-                    className="w-10 h-10 md:w-16 md:h-16 object-contain"
+                    alt="DGNPay Logo" 
+                    className="w-full h-full object-contain"
                   />
                 </div>
               </div>
