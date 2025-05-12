@@ -1,11 +1,23 @@
 
-import { useRef } from "react";
-import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { useState } from "react";
+import { 
+  Tabs, 
+  TabsList, 
+  TabsTrigger, 
+  TabsContent 
+} from "@/components/ui/tabs";
+import { 
+  Accordion, 
+  AccordionContent, 
+  AccordionItem, 
+  AccordionTrigger 
+} from "@/components/ui/accordion";
+import { motion } from "framer-motion";
 
 const FAQSection = () => {
-  const accordionRef = useRef<HTMLDivElement>(null);
+  const [activeTab, setActiveTab] = useState("general");
 
-  const faqs = [
+  const generalFaqs = [
     {
       id: "faq-1",
       question: "How does CryptoCard work?",
@@ -18,96 +30,217 @@ const FAQSection = () => {
     },
     {
       id: "faq-3",
+      question: "Is CryptoCard available worldwide?",
+      answer: "We're launching CryptoCard in phases. Initially, we'll be available in select countries in North America and Europe, with plans to expand globally as regulatory frameworks permit."
+    },
+  ];
+
+  const securityFaqs = [
+    {
+      id: "sec-1",
+      question: "How secure is CryptoCard?",
+      answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our cards include standard fraud protection features."
+    },
+    {
+      id: "sec-2",
+      question: "What happens if I lose my card?",
+      answer: "If your card is lost or stolen, you can instantly freeze it through our mobile app. Our 24/7 support team can help you get a replacement card shipped to you quickly while keeping your funds secure."
+    },
+  ];
+
+  const pricingFaqs = [
+    {
+      id: "price-1",
       question: "Are there any fees involved?",
       answer: "CryptoCard has a transparent fee structure with no hidden charges. There's a small conversion fee when your crypto is exchanged for fiat currency. Premium tiers offer reduced fees and additional benefits."
     },
     {
-      id: "faq-4",
-      question: "Is CryptoCard available worldwide?",
-      answer: "We're launching CryptoCard in phases. Initially, we'll be available in select countries in North America and Europe, with plans to expand globally as regulatory frameworks permit."
-    },
-    {
-      id: "faq-5",
-      question: "How secure is CryptoCard?",
-      answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our cards include standard fraud protection features."
+      id: "price-2",
+      question: "Do you offer any rewards or cashback?",
+      answer: "Yes! Our premium tiers offer up to 5% cashback in cryptocurrency on eligible purchases. These rewards are deposited directly to your crypto wallet and can be spent immediately or held as an investment."
     },
   ];
 
-  const handleAccordionValueChange = (value: string) => {
-    if (!accordionRef.current) return;
-    
-    const items = accordionRef.current.querySelectorAll('[data-state]');
-    items.forEach(item => {
-      const state = item.getAttribute('data-state');
-      const itemValue = item.getAttribute('data-value');
-      
-      if (state === 'open' && itemValue !== value) {
-        // Add special animation class to closing items
-        item.classList.add('closing');
-        setTimeout(() => item.classList.remove('closing'), 300);
-      }
-      
-      if (itemValue === value) {
-        // Add special animation class to opening item
-        item.classList.add('opening');
-        setTimeout(() => item.classList.remove('opening'), 300);
-      }
-    });
+  const tabVariants = {
+    inactive: { opacity: 0.7, y: 0 },
+    active: { 
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
+  };
+
+  const contentVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: { duration: 0.5, staggerChildren: 0.1 }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { opacity: 0, y: 20 },
+    visible: { 
+      opacity: 1,
+      y: 0,
+      transition: { duration: 0.5 }
+    }
   };
 
   return (
-    <section id="faq" className="py-24 relative">
+    <section id="faq" className="py-24 relative overflow-hidden">
       <div className="absolute inset-0 -z-10">
         <div className="absolute top-0 left-1/4 w-96 h-96 bg-crypto-purple/10 rounded-full filter blur-[80px]"></div>
         <div className="absolute bottom-0 right-1/4 w-96 h-96 bg-crypto-blue/10 rounded-full filter blur-[80px]"></div>
       </div>
       
       <div className="container mx-auto px-4">
-        <div className="text-center mb-16 animate-fade-up">
+        <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Frequently Asked Questions</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
             Have questions about CryptoCard? We've got answers.
           </p>
         </div>
 
-        <div className="max-w-3xl mx-auto animate-fade-up">
-          <div ref={accordionRef}>
-            <Accordion 
-              type="single" 
-              collapsible 
-              className="space-y-6"
-              onValueChange={handleAccordionValueChange}
-            >
-              {faqs.map((faq, index) => (
-                <AccordionItem 
-                  key={faq.id} 
-                  value={faq.id}
-                  className={`border border-gray-800 rounded-lg bg-secondary px-6 overflow-hidden animate-fade-up animate-stagger-${(index % 3) + 1} card-3d-effect`}
-                  data-value={faq.id}
+        <div className="max-w-4xl mx-auto bg-secondary/50 backdrop-blur-lg rounded-xl p-6 md:p-8 border border-white/10 shadow-xl">
+          <Tabs defaultValue="general" value={activeTab} onValueChange={setActiveTab} className="w-full">
+            <div className="flex justify-center mb-8">
+              <TabsList className="bg-background/50 backdrop-blur-sm p-1 rounded-full">
+                <TabsTrigger 
+                  value="general" 
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300"
                 >
-                  <AccordionTrigger className="text-left text-lg font-medium py-5 group">
-                    <span className="group-hover:text-gradient transition-all duration-300">{faq.question}</span>
-                    <div className="w-8 h-8 rounded-full bg-gray-800 flex items-center justify-center group-data-[state=open]:bg-gradient-to-r from-crypto-purple to-crypto-blue transition-all duration-300">
-                      <svg 
-                        className="w-4 h-4 text-white transition-transform duration-300 group-data-[state=open]:rotate-180" 
-                        fill="none" 
-                        stroke="currentColor" 
-                        viewBox="0 0 24 24" 
-                        xmlns="http://www.w3.org/2000/svg"
+                  <motion.div
+                    variants={tabVariants}
+                    animate={activeTab === "general" ? "active" : "inactive"}
+                  >
+                    General
+                  </motion.div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="security" 
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300"
+                >
+                  <motion.div
+                    variants={tabVariants}
+                    animate={activeTab === "security" ? "active" : "inactive"}
+                  >
+                    Security
+                  </motion.div>
+                </TabsTrigger>
+                <TabsTrigger 
+                  value="pricing" 
+                  className="rounded-full px-5 py-2 data-[state=active]:bg-crypto-purple data-[state=active]:text-white transition-all duration-300"
+                >
+                  <motion.div
+                    variants={tabVariants}
+                    animate={activeTab === "pricing" ? "active" : "inactive"}
+                  >
+                    Pricing
+                  </motion.div>
+                </TabsTrigger>
+              </TabsList>
+            </div>
+            
+            <TabsContent value="general" className="mt-0 focus-visible:outline-none">
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <Accordion type="single" collapsible className="space-y-4">
+                  {generalFaqs.map((faq, index) => (
+                    <motion.div
+                      key={faq.id}
+                      variants={itemVariants}
+                      custom={index}
+                    >
+                      <AccordionItem 
+                        value={faq.id}
+                        className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
                       >
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-                      </svg>
-                    </div>
-                  </AccordionTrigger>
-                  <AccordionContent className="text-gray-300 pb-5 card-3d-content">
-                    {faq.answer}
-                  </AccordionContent>
-                </AccordionItem>
-              ))}
-            </Accordion>
-          </div>
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                          <div className="flex items-center">
+                            <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4 text-gray-300">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </motion.div>
+                  ))}
+                </Accordion>
+              </motion.div>
+            </TabsContent>
 
-          <div className="mt-16 text-center">
+            <TabsContent value="security" className="mt-0 focus-visible:outline-none">
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <Accordion type="single" collapsible className="space-y-4">
+                  {securityFaqs.map((faq, index) => (
+                    <motion.div
+                      key={faq.id}
+                      variants={itemVariants}
+                      custom={index}
+                    >
+                      <AccordionItem 
+                        value={faq.id}
+                        className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
+                      >
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                          <div className="flex items-center">
+                            <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4 text-gray-300">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </motion.div>
+                  ))}
+                </Accordion>
+              </motion.div>
+            </TabsContent>
+
+            <TabsContent value="pricing" className="mt-0 focus-visible:outline-none">
+              <motion.div
+                variants={contentVariants}
+                initial="hidden"
+                animate="visible"
+              >
+                <Accordion type="single" collapsible className="space-y-4">
+                  {pricingFaqs.map((faq, index) => (
+                    <motion.div
+                      key={faq.id}
+                      variants={itemVariants}
+                      custom={index}
+                    >
+                      <AccordionItem 
+                        value={faq.id}
+                        className="border border-white/10 bg-background/40 rounded-lg overflow-hidden backdrop-blur-sm"
+                      >
+                        <AccordionTrigger className="px-6 py-4 hover:no-underline group">
+                          <div className="flex items-center">
+                            <span className="text-left font-medium text-lg group-hover:text-crypto-purple transition-colors duration-300">{faq.question}</span>
+                          </div>
+                        </AccordionTrigger>
+                        <AccordionContent className="px-6 pb-4 text-gray-300">
+                          {faq.answer}
+                        </AccordionContent>
+                      </AccordionItem>
+                    </motion.div>
+                  ))}
+                </Accordion>
+              </motion.div>
+            </TabsContent>
+          </Tabs>
+
+          <div className="mt-12 text-center">
             <p className="text-gray-300 mb-4">
               Still have questions?
             </p>
