@@ -30,7 +30,7 @@ const Navbar = () => {
           <div className="flex items-center">
             <div className="h-10 mr-2">
               <img 
-                src="https://i.ibb.co/ksthtgYs/Screenshot-2025-05-12-at-11-45-08-PM.png" 
+                src="https://i.ibb.co/G47x2nDf/Screenshot-2025-05-12-at-11-45-08-PM-removebg-preview.png" 
                 alt="DGNPay Logo" 
                 className="h-full object-contain"
               />
