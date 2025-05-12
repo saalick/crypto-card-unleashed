@@ -35,8 +35,8 @@ const HeroSection = () => {
     setIsFlipped(!isFlipped);
   };
   
-  // Fixed button handlers to ensure proper scrolling functionality
   const handleWhitelistClick = () => {
+    console.log("Whitelist button clicked");
     const whitelistSection = document.getElementById('whitelist');
     if (whitelistSection) {
       whitelistSection.scrollIntoView({ behavior: 'smooth' });
@@ -44,6 +44,7 @@ const HeroSection = () => {
   };
   
   const handleFeaturesClick = () => {
+    console.log("Features button clicked");
     const featuresSection = document.getElementById('features');
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
