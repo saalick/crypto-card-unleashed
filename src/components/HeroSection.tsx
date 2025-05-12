@@ -2,12 +2,10 @@
 import { useState, useEffect, useRef } from "react";
 import { Button } from "@/components/ui/button";
 import { useNavigate } from "react-router-dom";
-import { ArrowRight, Rocket, ShieldCheck, Globe } from "lucide-react";
 
 const HeroSection = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
-  const [isCardFlipped, setIsCardFlipped] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   const navigate = useNavigate();
@@ -34,10 +32,7 @@ const HeroSection = () => {
     setRotateY(0);
   };
   
-  const flipCard = () => {
-    setIsCardFlipped(!isCardFlipped);
-  };
-  
+  // Updated button handlers that directly work with the DOM
   const handleWhitelistClick = () => {
     const whitelistSection = document.getElementById('whitelist');
     if (whitelistSection) {
@@ -79,231 +74,114 @@ const HeroSection = () => {
     
     createBackgroundEffect();
     
+    // Trigger initial animations with slight delay
     const timer = setTimeout(() => {
       if (cardRef.current) {
         cardRef.current.classList.add('slide-in-bottom');
       }
     }, 300);
     
-    // Start a card animation sequence
-    const animationTimer = setTimeout(() => {
-      setIsCardFlipped(true);
-      setTimeout(() => {
-        setIsCardFlipped(false);
-      }, 1500);
-    }, 1500);
-    
-    return () => {
-      clearTimeout(timer);
-      clearTimeout(animationTimer);
-    };
-  }, []);
-  
-  // Periodic card flip animation
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIsCardFlipped(true);
-      setTimeout(() => {
-        setIsCardFlipped(false);
-      }, 1500);
-    }, 10000); // Flip every 10 seconds
-    
-    return () => clearInterval(interval);
+    return () => clearTimeout(timer);
   }, []);
 
   return (
-    <section id="hero-section" className="relative min-h-screen flex items-center pt-24 pb-16 px-4 overflow-hidden">
-      <div className="absolute inset-0 -z-10">
-        <div className="absolute w-[600px] h-[600px] rounded-full bg-crypto-purple/20 filter blur-[100px] -top-64 -left-32"></div>
-        <div className="absolute w-[500px] h-[500px] rounded-full bg-crypto-blue/20 filter blur-[100px] -bottom-20 right-0"></div>
-        <div className="absolute w-full h-full opacity-20">
-          <div className="absolute w-1 h-1 bg-white rounded-full top-1/4 left-1/4 animate-pulse-soft"></div>
-          <div className="absolute w-2 h-2 bg-crypto-green rounded-full top-1/3 left-1/2 animate-pulse-soft"></div>
-          <div className="absolute w-1 h-1 bg-crypto-purple rounded-full top-2/3 left-1/3 animate-pulse-soft"></div>
-          <div className="absolute w-2 h-2 bg-crypto-blue rounded-full top-1/2 right-1/4 animate-pulse-soft"></div>
-          <div className="absolute w-1 h-1 bg-white rounded-full bottom-1/4 right-1/3 animate-pulse-soft"></div>
-        </div>
-      </div>
-      
-      <div className="container mx-auto">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-          {/* Left Column - Text Content */}
-          <div className="text-left space-y-8 animate-fade-up animate-stagger-1">
-            <div className="inline-block px-4 py-1.5 rounded-full border border-crypto-purple/30 bg-crypto-purple/10 backdrop-blur-sm">
-              <p className="text-sm flex items-center gap-1.5">
-                <span className="relative flex h-2 w-2">
-                  <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-crypto-purple opacity-75"></span>
-                  <span className="relative inline-flex rounded-full h-2 w-2 bg-crypto-purple"></span>
-                </span>
-                Now available in beta
-              </p>
-            </div>
-            
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight">
-              <span className="text-gradient">Crypto</span> That Spends Like <span className="text-gradient">Cash</span>
+    <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
+      <div className="container mx-auto px-4">
+        <div className="flex flex-col md:flex-row items-center">
+          <div className="w-full md:w-1/2 mb-12 md:mb-0 text-left animate-fade-up animate-stagger-1">
+            <h1 className="text-4xl md:text-6xl lg:text-7xl font-bold mb-6 leading-tight">
+              <span className="text-gradient">Crypto</span> Spends Like <span className="text-gradient">Cash</span>
             </h1>
-            
-            <p className="text-lg text-gray-300 max-w-xl">
-              Experience the future of payments with our next-gen card that seamlessly bridges the gap between cryptocurrency and everyday spending. Your digital assets, available anywhere.
+            <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
+              The next-gen card that lets you spend your cryptocurrency anywhere, anytime. Just like traditional money, but better.
             </p>
-            
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-col sm:flex-row gap-4">
               <Button 
-                onClick={handleWhitelistClick} 
-                variant="gradient" 
-                size="xl"
-                className="group relative overflow-hidden cursor-pointer"
+                className="bg-crypto-purple hover:bg-crypto-light-purple text-lg py-6 px-8 shadow-lg shadow-crypto-purple/20 transition-all duration-300 hover:translate-y-[-2px]"
+                onClick={handleWhitelistClick}
               >
                 Join Whitelist
-                <div className="absolute right-4 group-hover:translate-x-1 transition-transform">
-                  <ArrowRight className="h-5 w-5" />
-                </div>
               </Button>
-              
               <Button 
-                onClick={handleFeaturesClick} 
                 variant="outline" 
-                size="xl"
-                className="text-white border-crypto-purple/50 hover:bg-crypto-purple/10 group cursor-pointer"
+                className="border-crypto-purple text-white hover:bg-crypto-purple/20 text-lg py-6 px-8 transition-all duration-300 hover:translate-y-[-2px]"
+                onClick={handleFeaturesClick}
               >
-                Explore Features
-                <div className="ml-1 group-hover:translate-y-[-2px] transition-transform">
-                  <Rocket className="h-5 w-5" />
-                </div>
+                Learn More
               </Button>
             </div>
-            
-            <div className="flex items-center gap-6 pt-4">
+            <div className="mt-8 flex items-center">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
-                  <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-gradient-to-r from-crypto-purple/80 to-crypto-blue/80 flex items-center justify-center text-xs font-bold shadow-lg">{i}</div>
+                  <div key={i} className="w-10 h-10 rounded-full border-2 border-background bg-gradient-to-r from-crypto-purple/80 to-crypto-blue/80 flex items-center justify-center text-xs font-bold">{i}</div>
                 ))}
               </div>
-              <div>
-                <p className="font-semibold text-xl">2,500+</p>
-                <p className="text-sm text-gray-400">People on waitlist</p>
-              </div>
-            </div>
-            
-            <div className="flex flex-wrap gap-6 pt-4">
-              <div className="flex items-center gap-2">
-                <ShieldCheck className="text-crypto-green h-5 w-5" />
-                <span className="text-sm">Bank-grade security</span>
-              </div>
-              <div className="flex items-center gap-2">
-                <Globe className="text-crypto-blue h-5 w-5" />
-                <span className="text-sm">Global acceptance</span>
-              </div>
+              <p className="ml-4 text-gray-300">
+                <span className="font-semibold text-white">2,500+</span> already on the waitlist
+              </p>
             </div>
           </div>
           
-          {/* Right Column - Card Visualization */}
           <div 
             ref={containerRef}
-            className="relative z-10 flex justify-center py-10 animate-fade-up animate-stagger-2" 
+            className="w-full md:w-1/2 relative animate-fade-up animate-stagger-2" 
             onMouseMove={handleMouseMove} 
             onMouseLeave={resetRotation}
           >
             <div className="relative">
-              {/* Main Card with Flip Animation */}
               <div 
                 ref={cardRef}
+                className="credit-card w-80 h-48 md:w-[28rem] md:h-64 mx-auto rounded-2xl card-3d-effect"
                 style={{
-                  transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${isCardFlipped ? '180deg' : `${rotateY}deg`})`,
-                  transition: isCardFlipped ? 'transform 0.8s ease-in-out' : 'transform 0.3s ease'
+                  transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
                 }}
-                className="w-80 h-48 md:w-96 md:h-56 rounded-2xl overflow-hidden shadow-2xl card-3d-effect cursor-pointer"
-                onClick={flipCard}
               >
-                {/* Front Side of Card */}
-                <div className={`absolute inset-0 backface-hidden ${isCardFlipped ? 'opacity-0' : 'opacity-100'}`} style={{ 
-                  backfaceVisibility: 'hidden',
-                  transition: 'opacity 0.3s ease'
-                }}>
-                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue opacity-70 blur-xl"></div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple via-crypto-blue to-crypto-green opacity-50"></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/40 backdrop-blur-sm p-6 flex flex-col justify-between">
-                    <div className="flex justify-between items-start">
-                      <h3 className="font-medium text-lg text-white/90">DGNPay</h3>
-                      <div className="h-8 w-8 rounded-full bg-white/10 p-1.5">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full">
-                          <circle cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="2" />
-                          <path d="M8 12h8M12 8v8" stroke="currentColor" strokeWidth="2" strokeLinecap="round" />
-                        </svg>
+                <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
+                <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-purple via-crypto-blue to-crypto-green overflow-hidden">
+                  <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
+                  <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
+                    <div className="flex justify-between">
+                      <div className="text-sm font-medium text-gray-300">DGNPay</div>
+                      <div className="w-12 h-12 rounded-full bg-white/10 overflow-hidden p-1">
+                        <img 
+                          src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                          alt="DGNPay Logo" 
+                          className="w-full h-full object-contain"
+                        />
                       </div>
                     </div>
                     
-                    <div>
-                      <div className="mb-4">
-                        <div className="h-6 w-12 rounded bg-white/20 mb-1"></div>
-                        <div className="font-mono tracking-widest text-xl md:text-2xl text-white/90">•••• •••• •••• 3456</div>
-                      </div>
-                      
-                      <div className="flex justify-between items-end">
+                    <div className="flex flex-col space-y-4">
+                      <div className="text-xl md:text-2xl font-mono tracking-widest">•••• •••• •••• 3456</div>
+                      <div className="flex justify-between">
                         <div>
-                          <p className="text-xs text-white/60">VALID THRU</p>
-                          <p className="font-mono">09/28</p>
+                          <div className="text-xs text-gray-400">VALID THRU</div>
+                          <div className="text-sm md:text-base">09/28</div>
                         </div>
                         <div>
-                          <p className="text-xs text-white/60">NAME</p>
-                          <p className="font-mono">SATOSHI NAKAMOTO</p>
+                          <div className="text-xs text-gray-400">NAME</div>
+                          <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
                         </div>
-                        <div className="flex h-8 w-8">
-                          <svg viewBox="0 0 36 24" className="w-full h-full">
-                            <circle cx="12" cy="12" r="10" fill="none" stroke="white" strokeOpacity="0.8" strokeWidth="2" />
-                            <circle cx="24" cy="12" r="10" fill="none" stroke="white" strokeOpacity="0.8" strokeWidth="2" />
-                          </svg>
+                        <div className="flex items-end">
+                          <div className="w-8 h-8 md:w-10 md:h-10">
+                            <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                              <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                              <circle cx="8" cy="12" r="2" fill="white" />
+                              <circle cx="16" cy="12" r="2" fill="white" />
+                            </svg>
+                          </div>
                         </div>
                       </div>
-                    </div>
-                  </div>
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent"></div>
-                  <div className="absolute inset-0 bg-shimmer"></div>
-                </div>
-                
-                {/* Back Side of Card */}
-                <div className={`absolute inset-0 backface-hidden ${isCardFlipped ? 'opacity-100' : 'opacity-0'}`} style={{ 
-                  transform: 'rotateY(180deg)',
-                  backfaceVisibility: 'hidden',
-                  transition: 'opacity 0.3s ease'
-                }}>
-                  <div className="absolute inset-0 bg-gradient-to-r from-crypto-blue to-crypto-purple opacity-70 blur-sm"></div>
-                  <div className="absolute inset-0 bg-gradient-to-br from-black/80 to-black/40 backdrop-blur-sm p-6 flex flex-col justify-between">
-                    <div className="w-full h-12 bg-black/50 mt-6"></div>
-                    
-                    <div className="flex flex-col items-center justify-center gap-4">
-                      <div className="h-8 w-full max-w-[80%] bg-white/10 flex items-center px-4 backdrop-blur-sm">
-                        <p className="font-mono text-xs tracking-widest ml-auto">***</p>
-                      </div>
-                      <p className="text-xs text-center text-white/60">This card is powered by blockchain technology</p>
-                    </div>
-                    
-                    <div className="flex justify-between items-center">
-                      <div className="h-10 w-10 rounded-full bg-gradient-to-r from-crypto-green to-crypto-blue flex items-center justify-center p-1">
-                        <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" className="w-full h-full text-white/90">
-                          <path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10z" stroke="currentColor" strokeWidth="2" />
-                          <path d="M7.5 12.5l3 3 6-6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
-                        </svg>
-                      </div>
-                      <p className="font-mono text-sm">blockchain secured</p>
                     </div>
                   </div>
                 </div>
               </div>
               
-              {/* Floating Elements */}
-              <div className="absolute -top-10 -left-6 w-24 h-24 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue p-px animate-float opacity-90 shadow-xl shadow-crypto-purple/20">
-                <div className="w-full h-full rounded-full bg-black/80 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-10 h-10 text-crypto-purple">
-                    <circle cx="12" cy="12" r="10" />
-                    <path d="M16 8h-6a2 2 0 100 4h4a2 2 0 110 4H8" />
-                    <path d="M12 6v2m0 8v2" />
-                  </svg>
-                </div>
-              </div>
+              <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-crypto-green rounded-full blur-xl animate-pulse-soft opacity-30"></div>
+              <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-crypto-orange rounded-full blur-xl animate-pulse-soft opacity-30"></div>
               
-              <div className="absolute -bottom-6 right-10 w-32 h-32 rounded-xl bg-gradient-to-r from-crypto-blue to-crypto-green p-px animate-float rotate-12 shadow-xl shadow-crypto-blue/20 delay-150">
-                <div className="w-full h-full rounded-xl bg-black/80 flex items-center justify-center p-3">
+              <div className="absolute -bottom-4 right-8 w-20 h-20 md:w-32 md:h-32 rounded-lg bg-gradient-to-r from-crypto-blue to-crypto-green p-[2px] animate-float rotate-12 shadow-lg shadow-crypto-blue/20">
+                <div className="w-full h-full rounded-lg bg-black/90 flex items-center justify-center p-2">
                   <img 
                     src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
                     alt="DGNPay Logo" 
@@ -312,21 +190,25 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              <div className="absolute top-1/3 -right-10 w-16 h-16 rounded-lg bg-gradient-to-r from-crypto-green to-crypto-blue p-px animate-float rotate-45 shadow-lg shadow-crypto-green/20 delay-300">
-                <div className="w-full h-full rounded-lg bg-black/80 flex items-center justify-center">
-                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" className="w-8 h-8 text-crypto-green">
-                    <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83" />
+              <div className="absolute -top-8 -left-4 w-20 h-20 md:w-28 md:h-28 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue p-[2px] animate-float animate-spin-slow opacity-80 shadow-lg shadow-crypto-purple/20">
+                <div className="w-full h-full rounded-full bg-black/80 flex items-center justify-center">
+                  <svg className="w-10 h-10 md:w-14 md:h-14 text-crypto-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
+                    <path d="M9 8.8C9 8.51997 9 8.37996 9.0545 8.273C9.10243 8.17892 9.17892 8.10243 9.273 8.0545C9.37996 8 9.51997 8 9.8 8H14.2C14.48 8 14.62 8 14.727 8.0545C14.8211 8.10243 14.8976 8.17892 14.9455 8.273C15 8.37996 15 8.51997 15 8.8V9.2C15 9.48003 15 9.62004 14.9455 9.727C14.8976 9.82108 14.8211 9.89757 14.727 9.9455C14.62 10 14.48 10 14.2 10H9.8C9.51997 10 9.37996 10 9.273 9.9455C9.17892 9.89757 9.10243 9.82108 9.0545 9.727C9 9.62004 9 9.48003 9 9.2V8.8Z" fill="currentColor"/>
+                    <path d="M9 14.8C9 14.52 9 14.38 9.0545 14.273C9.10243 14.1789 9.17892 14.1024 9.273 14.0545C9.37996 14 9.51997 14 9.8 14H14.2C14.48 14 14.62 14 14.727 14.0545C14.8211 14.1024 14.8976 14.1789 14.9455 14.273C15 14.38 15 14.52 15 14.8V15.2C15 15.48 15 15.62 14.9455 15.727C14.8976 15.8211 14.8211 15.8976 14.727 15.9455C14.62 16 14.48 16 14.2 16H9.8C9.51997 16 9.37996 16 9.273 15.9455C9.17892 15.8976 9.10243 15.8211 9.0545 15.727C9 15.62 9 15.48 9 15.2V14.8Z" fill="currentColor"/>
                   </svg>
                 </div>
               </div>
-              
-              {/* Decorative particles with animation */}
-              <div className="absolute top-1/4 left-1/2 w-1 h-1 rounded-full bg-crypto-purple animate-pulse-soft"></div>
-              <div className="absolute top-3/4 left-1/4 w-2 h-2 rounded-full bg-crypto-blue animate-pulse-soft"></div>
-              <div className="absolute top-2/3 right-1/3 w-1 h-1 rounded-full bg-crypto-green animate-pulse-soft"></div>
             </div>
           </div>
         </div>
+      </div>
+      
+      {/* Background decorative elements */}
+      <div className="absolute top-0 left-0 w-full h-full overflow-hidden -z-10">
+        <div className="absolute top-10 left-10 w-60 h-60 bg-crypto-purple/20 rounded-full filter blur-[100px]"></div>
+        <div className="absolute bottom-10 right-10 w-60 h-60 bg-crypto-blue/20 rounded-full filter blur-[100px]"></div>
+        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-crypto-purple/5 rounded-full filter blur-[120px]"></div>
       </div>
     </section>
   );
