@@ -1,11 +1,13 @@
 
 import { useState, useEffect, useRef } from "react";
-import { Button } from "@/components/ui/button";
+import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs";
+import { ToggleGroup, ToggleGroupItem } from "@/components/ui/toggle-group";
 
 const HeroSection = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
+  const [activeToggle, setActiveToggle] = useState("visa");
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -99,21 +101,36 @@ const HeroSection = () => {
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
               The next-gen card that lets you spend your cryptocurrency anywhere, anytime. Just like traditional money, but better.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button 
-                className="bg-crypto-purple hover:bg-crypto-light-purple text-lg py-6 px-8 shadow-lg shadow-crypto-purple/20 transition-all duration-300 hover:translate-y-[-2px]"
-                onClick={handleWhitelistClick}
+            
+            {/* Replacing buttons with toggle group */}
+            <div className="mb-8">
+              <ToggleGroup 
+                type="single" 
+                value={activeToggle}
+                onValueChange={(value) => value && setActiveToggle(value)}
+                className="bg-black/40 p-1.5 rounded-xl border border-gray-800"
               >
-                Join Whitelist
-              </Button>
-              <Button 
-                variant="outline" 
-                className="border-crypto-purple text-white hover:bg-crypto-purple/20 text-lg py-6 px-8 transition-all duration-300 hover:translate-y-[-2px]"
-                onClick={handleFeaturesClick}
-              >
-                Learn More
-              </Button>
+                <ToggleGroupItem 
+                  value="visa" 
+                  className="data-[state=on]:bg-gradient-to-r data-[state=on]:from-crypto-purple data-[state=on]:to-crypto-blue data-[state=on]:text-white px-6 py-3 rounded-lg"
+                >
+                  Visa
+                </ToggleGroupItem>
+                <ToggleGroupItem 
+                  value="mastercard" 
+                  className="data-[state=on]:bg-gradient-to-r data-[state=on]:from-crypto-purple data-[state=on]:to-crypto-blue data-[state=on]:text-white px-6 py-3 rounded-lg"
+                >
+                  Mastercard
+                </ToggleGroupItem>
+                <ToggleGroupItem 
+                  value="amex" 
+                  className="data-[state=on]:bg-gradient-to-r data-[state=on]:from-crypto-purple data-[state=on]:to-crypto-blue data-[state=on]:text-white px-6 py-3 rounded-lg"
+                >
+                  Amex
+                </ToggleGroupItem>
+              </ToggleGroup>
             </div>
+            
             <div className="mt-8 flex items-center">
               <div className="flex -space-x-3">
                 {[1, 2, 3, 4].map((i) => (
