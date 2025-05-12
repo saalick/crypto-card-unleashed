@@ -32,14 +32,15 @@ const HeroSection = () => {
     setRotateY(0);
   };
   
-  const scrollToWhitelist = () => {
+  // Updated button handlers that directly work with the DOM
+  const handleWhitelistClick = () => {
     const whitelistSection = document.getElementById('whitelist');
     if (whitelistSection) {
       whitelistSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
   
-  const scrollToFeatures = () => {
+  const handleFeaturesClick = () => {
     const featuresSection = document.getElementById('features');
     if (featuresSection) {
       featuresSection.scrollIntoView({ behavior: 'smooth' });
@@ -97,14 +98,14 @@ const HeroSection = () => {
             <div className="flex flex-col sm:flex-row gap-4">
               <Button 
                 className="bg-crypto-purple hover:bg-crypto-light-purple text-lg py-6 px-8 shadow-lg shadow-crypto-purple/20 transition-all duration-300 hover:translate-y-[-2px]"
-                onClick={scrollToWhitelist}
+                onClick={handleWhitelistClick}
               >
                 Join Whitelist
               </Button>
               <Button 
                 variant="outline" 
                 className="border-crypto-purple text-white hover:bg-crypto-purple/20 text-lg py-6 px-8 transition-all duration-300 hover:translate-y-[-2px]"
-                onClick={scrollToFeatures}
+                onClick={handleFeaturesClick}
               >
                 Learn More
               </Button>
@@ -159,7 +160,7 @@ const HeroSection = () => {
                         </div>
                         <div>
                           <div className="text-xs text-gray-400">NAME</div>
-                          <div className="text-sm md:text-base">ALEX MORGAN</div>
+                          <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
                         </div>
                         <div className="flex items-end">
                           <div className="w-8 h-8 md:w-10 md:h-10">
