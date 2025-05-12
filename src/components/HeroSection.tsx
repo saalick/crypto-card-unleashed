@@ -97,20 +97,14 @@ const HeroSection = () => {
               <span className="text-gradient">Crypto</span> Spends Like <span className="text-gradient">Cash</span>
             </h1>
             <p className="text-lg md:text-xl text-gray-300 mb-8 max-w-lg">
-              Add DGNPay to your Apple Wallet and spend your cryptocurrency anywhere, anytime - just like traditional money, but better.
+              The next-gen card that lets you spend your cryptocurrency anywhere, anytime. Just like traditional money, but better.
             </p>
             
-            {/* Apple Wallet Integration section */}
+            {/* Powered by Visa section */}
             <div className="mb-8 flex items-center">
               <div className="bg-black/40 p-4 rounded-xl border border-gray-800 flex items-center">
-                <span className="text-gray-300 mr-2">Compatible with</span>
-                <svg className="h-6 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
-                  <path fill="white" d="M30.6,19.4c0-3.3,2.7-4.9,2.8-4.9c-1.5-2.2-3.9-2.5-4.7-2.5c-2-0.2-3.9,1.2-4.9,1.2c-1,0-2.6-1.2-4.2-1.1
-                    c-2.2,0-4.2,1.3-5.3,3.2c-2.3,3.9-0.6,9.7,1.6,12.9c1.1,1.6,2.3,3.3,4,3.2c1.6-0.1,2.2-1,4.2-1c1.9,0,2.5,1,4.2,1
-                    c1.7,0,2.8-1.6,3.9-3.1c1.2-1.8,1.7-3.5,1.7-3.6C33.9,24.7,30.7,23.4,30.6,19.4z"/>
-                  <path fill="white" d="M27.3,10.2c0.9-1.1,1.5-2.6,1.3-4.1c-1.3,0.1-2.8,0.9-3.8,1.9c-0.8,0.9-1.5,2.5-1.3,3.9C25,12.1,26.4,11.3,27.3,10.2z"/>
-                </svg>
-                <span className="text-white font-bold ml-1">Wallet</span>
+                <span className="text-gray-300 mr-2">Powered by</span>
+                <div className="text-[#1EAEDB] font-bold text-2xl">VISA</div>
               </div>
             </div>
             
@@ -142,27 +136,20 @@ const HeroSection = () => {
                 onClick={handleCardClick}
               >
                 <div className="credit-card-inner w-full h-full transition-transform duration-700" style={{ transformStyle: "preserve-3d", transform: isFlipped ? 'rotateY(180deg)' : 'rotateY(0)' }}>
-                  {/* Front of card - Apple Pay Style */}
+                  {/* Front of card */}
                   <div className="credit-card-front absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden" }}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-2xl opacity-90"></div>
-                    <div className="absolute inset-0 p-[2px] rounded-2xl bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700 overflow-hidden">
-                      <div className="h-full w-full rounded-2xl bg-gradient-to-b from-gray-900 to-black flex flex-col justify-between p-6 relative z-10">
+                    <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
+                    <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-purple via-crypto-blue to-crypto-green overflow-hidden">
+                      <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
+                      <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                         <div className="flex justify-between">
-                          <div className="flex items-center">
+                          <div className="text-sm font-medium text-gray-300">DGNPay</div>
+                          <div className="w-12 h-12 rounded-full bg-white/10 overflow-hidden p-1">
                             <img 
-                              src="https://i.ibb.co/ksthtgYs/Screenshot-2025-05-12-at-11-45-08-PM.png" 
+                              src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
                               alt="DGNPay Logo" 
-                              className="h-8 w-auto object-contain"
+                              className="w-full h-full object-contain"
                             />
-                          </div>
-                          <div className="flex items-center">
-                            <svg className="h-6 w-auto" viewBox="0 0 450 450" fill="none" xmlns="http://www.w3.org/2000/svg">
-                              <path fill="white" d="M365.3,115.8h-0.7c-2.5,5.9-7.2,10.7-13.5,13.8v0.1c-6.4,3.2-13.5,3.8-20.3,1.7
-                                c-6.8-2-12.2-6.4-15.4-12.3c-3.2-5.9-3.8-12.6-1.8-19.1c2-6.5,6.4-11.7,12.3-14.9c5.9-3.2,12.9-3.8,19.4-1.7
-                                c6.5,2.1,11.7,6.5,14.9,12.4h31c-4.9-19.4-16.7-35.6-33-45.5c-16.3-9.9-35.9-12.3-54.3-6.7c-18.4,5.6-33.6,18-42.8,34.7
-                                c-9.2,16.7-11.3,36.1-5.7,54.4c5.6,18.3,18,33.3,34.7,42.3c16.7,9,36.1,11,54.4,5.4c18.3-5.6,33.3-18,42.3-34.7
-                                c6-11.3,8.6-23.8,8.1-36.2h-30.6V115.8z"/>
-                            </svg>
                           </div>
                         </div>
                         
@@ -177,27 +164,36 @@ const HeroSection = () => {
                               <div className="text-xs text-gray-400">NAME</div>
                               <div className="text-sm md:text-base">SATOSHI NAKAMOTO</div>
                             </div>
+                            <div className="flex items-end">
+                              <div className="w-8 h-8 md:w-10 md:h-10">
+                                <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                  <circle cx="12" cy="12" r="10" stroke="white" strokeWidth="2" />
+                                  <circle cx="8" cy="12" r="2" fill="white" />
+                                  <circle cx="16" cy="12" r="2" fill="white" />
+                                </svg>
+                              </div>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                   
-                  {/* Back of card - Apple Pay Style */}
+                  {/* Back of card */}
                   <div className="credit-card-back absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
-                    <div className="absolute inset-0 bg-gradient-to-br from-gray-900 to-black rounded-2xl opacity-90"></div>
-                    <div className="absolute inset-0 p-[2px] rounded-2xl bg-gradient-to-r from-gray-700 via-gray-500 to-gray-700 overflow-hidden">
-                      <div className="h-full w-full rounded-2xl bg-gradient-to-b from-gray-900 to-black flex flex-col justify-between p-6 relative z-10">
-                        <div className="w-full h-12 bg-gray-800 mt-4 rounded"></div>
+                    <div className="absolute inset-0 bg-gradient-to-r from-crypto-blue to-crypto-purple rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
+                    <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-blue via-crypto-purple to-crypto-orange overflow-hidden">
+                      <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
+                        <div className="w-full h-12 bg-gray-800/50 mt-4 rounded"></div>
                         <div className="flex flex-col space-y-4 mt-4">
                           <div className="flex justify-end">
-                            <div className="bg-gray-800 w-16 h-8 rounded flex items-center justify-center text-xs font-mono">CVV</div>
+                            <div className="bg-gray-700/50 w-16 h-8 rounded flex items-center justify-center text-xs font-mono">CVV</div>
                           </div>
                           <div className="flex items-center justify-center mt-4">
-                            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-gray-700 to-gray-500 p-1">
-                              <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
+                            <div className="w-16 h-16 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue p-1 animate-spin-slow">
+                              <div className="w-full h-full rounded-full bg-black/80 flex items-center justify-center">
                                 <img 
-                                  src="https://i.ibb.co/ksthtgYs/Screenshot-2025-05-12-at-11-45-08-PM.png" 
+                                  src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
                                   alt="DGNPay Logo" 
                                   className="w-10 h-10 object-contain"
                                 />
@@ -212,20 +208,22 @@ const HeroSection = () => {
                 </div>
               </div>
               
-              <div className="absolute -bottom-4 right-8 w-20 h-20 md:w-32 md:h-32 rounded-lg bg-gradient-to-r from-gray-700 to-gray-500 p-[2px] animate-float rotate-12 shadow-lg">
-                <div className="w-full h-full rounded-lg bg-black flex items-center justify-center p-2">
-                  <svg className="h-12 w-auto" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 120 40">
-                    <path fill="white" d="M30.6,19.4c0-3.3,2.7-4.9,2.8-4.9c-1.5-2.2-3.9-2.5-4.7-2.5c-2-0.2-3.9,1.2-4.9,1.2c-1,0-2.6-1.2-4.2-1.1
-                      c-2.2,0-4.2,1.3-5.3,3.2c-2.3,3.9-0.6,9.7,1.6,12.9c1.1,1.6,2.3,3.3,4,3.2c1.6-0.1,2.2-1,4.2-1c1.9,0,2.5,1,4.2,1
-                      c1.7,0,2.8-1.6,3.9-3.1c1.2-1.8,1.7-3.5,1.7-3.6C33.9,24.7,30.7,23.4,30.6,19.4z"/>
-                    <path fill="white" d="M27.3,10.2c0.9-1.1,1.5-2.6,1.3-4.1c-1.3,0.1-2.8,0.9-3.8,1.9c-0.8,0.9-1.5,2.5-1.3,3.9C25,12.1,26.4,11.3,27.3,10.2z"/>
-                  </svg>
+              <div className="absolute top-1/4 right-1/4 w-20 h-20 bg-crypto-green rounded-full blur-xl animate-pulse-soft opacity-30"></div>
+              <div className="absolute bottom-1/3 left-1/4 w-24 h-24 bg-crypto-orange rounded-full blur-xl animate-pulse-soft opacity-30"></div>
+              
+              <div className="absolute -bottom-4 right-8 w-20 h-20 md:w-32 md:h-32 rounded-lg bg-gradient-to-r from-crypto-blue to-crypto-green p-[2px] animate-float rotate-12 shadow-lg shadow-crypto-blue/20">
+                <div className="w-full h-full rounded-lg bg-black/90 flex items-center justify-center p-2">
+                  <img 
+                    src="https://i.ibb.co/hngbjQS/2025-05-11-12-04-55.png" 
+                    alt="DGNPay Logo" 
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               </div>
               
-              <div className="absolute -top-8 -left-4 w-20 h-20 md:w-28 md:h-28 rounded-full bg-gradient-to-r from-gray-700 to-gray-500 p-[2px] animate-float opacity-80 shadow-lg">
-                <div className="w-full h-full rounded-full bg-black flex items-center justify-center">
-                  <svg className="w-10 h-10 md:w-14 md:h-14 text-white" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <div className="absolute -top-8 -left-4 w-20 h-20 md:w-28 md:h-28 rounded-full bg-gradient-to-r from-crypto-purple to-crypto-blue p-[2px] animate-float animate-spin-slow opacity-80 shadow-lg shadow-crypto-purple/20">
+                <div className="w-full h-full rounded-full bg-black/80 flex items-center justify-center">
+                  <svg className="w-10 h-10 md:w-14 md:h-14 text-crypto-purple" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                     <path d="M12 22C17.5228 22 22 17.5228 22 12C22 6.47715 17.5228 2 12 2C6.47715 2 2 6.47715 2 12C2 17.5228 6.47715 22 12 22Z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
                     <path d="M9 8.8C9 8.51997 9 8.37996 9.0545 8.273C9.10243 8.17892 9.17892 8.10243 9.273 8.0545C9.37996 8 9.51997 8 9.8 8H14.2C14.48 8 14.62 8 14.727 8.0545C14.8211 8.10243 14.8976 8.17892 14.9455 8.273C15 8.37996 15 8.51997 15 8.8V9.2C15 9.48003 15 9.62004 14.9455 9.727C14.8976 9.82108 14.8211 9.89757 14.727 9.9455C14.62 10 14.48 10 14.2 10H9.8C9.51997 10 9.37996 10 9.273 9.9455C9.17892 9.89757 9.10243 9.82108 9.0545 9.727C9 9.62004 9 9.48003 9 9.2V8.8Z" fill="currentColor"/>
                     <path d="M9 14.8C9 14.52 9 14.38 9.0545 14.273C9.10243 14.1789 9.17892 14.1024 9.273 14.0545C9.37996 14 9.51997 14 9.8 14H14.2C14.48 14 14.62 14 14.727 14.0545C14.8211 14.1024 14.8976 14.1789 14.9455 14.273C15 14.38 15 14.52 15 14.8V15.2C15 15.48 15 15.62 14.9455 15.727C14.8976 15.8211 14.8211 15.8976 14.727 15.9455C14.62 16 14.48 16 14.2 16H9.8C9.51997 16 9.37996 16 9.273 15.9455C9.17892 15.8976 9.10243 15.8211 9.0545 15.727C9 15.62 9 15.48 9 15.2V14.8Z" fill="currentColor"/>

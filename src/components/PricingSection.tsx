@@ -6,32 +6,28 @@ import { Check } from "lucide-react";
 const PricingSection = () => {
   const plans = [
     {
-      name: "Trencher",
-      price: "$15/mo",
+      name: "Basic",
+      price: "Free",
       features: [
-        "Virtual DGNPay Card",
+        "Virtual Crypto Card",
         "Bitcoin & Ethereum Support",
-        "Standard Exchange Rates",
-        "$5,000 Monthly Deposit Limit",
+        "Basic Exchange Rates",
+        "$1,000 Monthly Spending Limit",
         "Standard Support",
-        "Apple Wallet Integration",
-        "Mastercard Only",
       ],
-      cta: "Join Waitlist",
+      cta: "Get Started",
       isPopular: false,
       color: "from-gray-500 to-gray-700"
     },
     {
-      name: "Quant",
-      price: "$25/mo",
+      name: "Premium",
+      price: "$9.99/mo",
       features: [
-        "Virtual DGNPay Card",
+        "Physical & Virtual Cards",
         "Support for 20+ Cryptocurrencies",
         "Premium Exchange Rates",
-        "$10,000 Monthly Deposit Limit",
+        "$10,000 Monthly Spending Limit",
         "Priority Support",
-        "Apple Wallet Integration",
-        "Mastercard Only",
         "Cashback Rewards",
       ],
       cta: "Join Waitlist",
@@ -39,20 +35,18 @@ const PricingSection = () => {
       color: "from-crypto-purple to-crypto-blue"
     },
     {
-      name: "Whale",
-      price: "$60/mo",
+      name: "Business",
+      price: "$29.99/mo",
       features: [
-        "Physical & Virtual DGNPay Cards",
+        "Multiple Cards Management",
         "All Cryptocurrencies Support",
         "Best Exchange Rates",
-        "$20,000 Monthly Deposit Limit",
+        "Unlimited Monthly Spending",
         "Dedicated Account Manager",
         "Enhanced Security Features",
         "Expense Management Tools",
-        "Visa + Mastercard Support",
-        "Premium Metal Card",
       ],
-      cta: "Join Waitlist",
+      cta: "Contact Sales",
       isPopular: false,
       color: "from-crypto-blue to-crypto-green"
     }
@@ -67,9 +61,9 @@ const PricingSection = () => {
       
       <div className="container mx-auto px-4">
         <div className="text-center mb-16 animate-fade-up">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Choose Your Plan</h2>
+          <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Simple, Transparent Pricing</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Select the tier that suits your crypto spending needs. No hidden fees or long-term commitments.
+            Choose the plan that fits your needs. No hidden fees or long-term commitments.
           </p>
         </div>
 
@@ -130,7 +124,7 @@ const PricingSection = () => {
 
         <div className="mt-16 text-center animate-fade-up">
           <p className="text-gray-400">
-            All plans include our core security features, Apple Wallet integration, and fraud protection.
+            All plans include our core security features and fraud protection.
           </p>
         </div>
       </div>

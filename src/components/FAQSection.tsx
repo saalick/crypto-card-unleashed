@@ -20,8 +20,8 @@ const FAQSection = () => {
   const generalFaqs = [
     {
       id: "faq-1",
-      question: "How does DGNPay work?",
-      answer: "DGNPay allows you to spend your cryptocurrency like traditional money. When you make a purchase, our system converts your crypto to the local currency in real-time at the best available exchange rate, making the transaction seamless for merchants."
+      question: "How does CryptoCard work?",
+      answer: "CryptoCard allows you to spend your cryptocurrency like traditional money. When you make a purchase, our system converts your crypto to the local currency in real-time at the best available exchange rate, making the transaction seamless for merchants."
     },
     {
       id: "faq-2",
@@ -30,21 +30,21 @@ const FAQSection = () => {
     },
     {
       id: "faq-3",
-      question: "Is DGNPay available worldwide?",
-      answer: "We're launching DGNPay in phases. Initially, we'll be available in select countries in North America and Europe, with plans to expand globally as regulatory frameworks permit."
+      question: "Is CryptoCard available worldwide?",
+      answer: "We're launching CryptoCard in phases. Initially, we'll be available in select countries in North America and Europe, with plans to expand globally as regulatory frameworks permit."
     },
   ];
 
   const securityFaqs = [
     {
       id: "sec-1",
-      question: "How secure is DGNPay?",
-      answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our DGNPay cards include standard fraud protection features."
+      question: "How secure is CryptoCard?",
+      answer: "Security is our top priority. We use industry-standard encryption, multi-factor authentication, and cold storage solutions to protect your assets. Additionally, our cards include standard fraud protection features."
     },
     {
       id: "sec-2",
-      question: "What happens if I lose my DGNPay card?",
-      answer: "If your DGNPay card is lost or stolen, you can instantly freeze it through our mobile app. Our 24/7 support team can help you get a replacement card shipped to you quickly while keeping your funds secure."
+      question: "What happens if I lose my card?",
+      answer: "If your card is lost or stolen, you can instantly freeze it through our mobile app. Our 24/7 support team can help you get a replacement card shipped to you quickly while keeping your funds secure."
     },
   ];
 
@@ -52,7 +52,7 @@ const FAQSection = () => {
     {
       id: "price-1",
       question: "Are there any fees involved?",
-      answer: "DGNPay has a transparent fee structure with no hidden charges. There's a small conversion fee when your crypto is exchanged for fiat currency. Premium tiers offer reduced fees and additional benefits."
+      answer: "CryptoCard has a transparent fee structure with no hidden charges. There's a small conversion fee when your crypto is exchanged for fiat currency. Premium tiers offer reduced fees and additional benefits."
     },
     {
       id: "price-2",
@@ -99,7 +99,7 @@ const FAQSection = () => {
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Frequently Asked Questions</h2>
           <p className="text-lg text-gray-300 max-w-2xl mx-auto">
-            Have questions about DGNPay? We've got answers.
+            Have questions about CryptoCard? We've got answers.
           </p>
         </div>
 
