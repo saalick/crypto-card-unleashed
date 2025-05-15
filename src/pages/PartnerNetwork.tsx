@@ -619,7 +619,8 @@ const PartnerNetwork = () => {
       <Footer />
 
       {/* CSS for pulse animation */}
-      <style jsx global>{`
+      <style>
+        {`
         .pulse-animation {
           position: relative;
         }
@@ -650,7 +651,8 @@ const PartnerNetwork = () => {
             opacity: 0.7;
           }
         }
-      `}</style>
+      `}
+      </style>
     </div>
   );
 };

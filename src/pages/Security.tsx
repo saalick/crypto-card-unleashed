@@ -1,5 +1,5 @@
 
-import { useEffect, useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
