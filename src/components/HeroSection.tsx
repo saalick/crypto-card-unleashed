@@ -7,7 +7,6 @@ const HeroSection = () => {
   const [rotateX, setRotateX] = useState(0);
   const [rotateY, setRotateY] = useState(0);
   const [isFlipped, setIsFlipped] = useState(false);
-  const [isHovered, setIsHovered] = useState(false);
   const cardRef = useRef<HTMLDivElement>(null);
   const containerRef = useRef<HTMLDivElement>(null);
   
@@ -21,18 +20,16 @@ const HeroSection = () => {
     const mouseX = e.clientX;
     const mouseY = e.clientY;
     
-    const newRotateY = ((mouseX - centerX) / (rect.width / 2)) * 15;
-    const newRotateX = -((mouseY - centerY) / (rect.height / 2)) * 15;
+    const newRotateY = ((mouseX - centerX) / (rect.width / 2)) * 10;
+    const newRotateX = -((mouseY - centerY) / (rect.height / 2)) * 10;
     
     setRotateX(newRotateX);
     setRotateY(newRotateY);
   };
   
   const resetRotation = () => {
-    if (!isHovered) {
-      setRotateX(0);
-      setRotateY(0);
-    }
+    setRotateX(0);
+    setRotateY(0);
   };
 
   const handleCardClick = () => {
@@ -88,20 +85,9 @@ const HeroSection = () => {
         cardRef.current.classList.add('slide-in-bottom');
       }
     }, 300);
-
-    // Add automatic rotation animation
-    const rotateInterval = setInterval(() => {
-      if (!isHovered && cardRef.current) {
-        setRotateY(prev => (prev + 0.2) % 10);
-        setRotateX(prev => Math.sin(Date.now() / 2000) * 5);
-      }
-    }, 50);
     
-    return () => {
-      clearTimeout(timer);
-      clearInterval(rotateInterval);
-    };
-  }, [isHovered]);
+    return () => clearTimeout(timer);
+  }, []);
 
   return (
     <section id="hero-section" className="relative pt-32 pb-20 md:pt-40 md:pb-28 overflow-hidden">
@@ -135,16 +121,13 @@ const HeroSection = () => {
             className="w-full md:w-1/2 relative animate-fade-up animate-stagger-2" 
             onMouseMove={handleMouseMove} 
             onMouseLeave={resetRotation}
-            onMouseEnter={() => setIsHovered(true)}
-            onMouseOut={() => setIsHovered(false)}
           >
             <div className="relative">
               <div 
                 ref={cardRef}
                 className={`credit-card w-80 h-48 md:w-[28rem] md:h-64 mx-auto rounded-2xl perspective-1000 cursor-pointer ${isFlipped ? 'flipped' : ''}`}
                 style={{
-                  transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`,
-                  transition: 'transform 0.2s ease'
+                  transform: `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`
                 }}
                 onClick={handleCardClick}
               >
@@ -153,18 +136,13 @@ const HeroSection = () => {
                   <div className="credit-card-front absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden" }}>
                     <div className="absolute inset-0 bg-gradient-to-r from-crypto-purple to-crypto-blue rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
                     <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-purple via-crypto-blue to-crypto-green overflow-hidden">
-                      {/* Metallic effect layers */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/20 opacity-50"></div>
-                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.4),transparent_70%)] mix-blend-overlay"></div>
                       <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
-                      
-                      {/* Card content */}
-                      <div className="h-full w-full rounded-2xl bg-black/80 flex flex-col justify-between p-6 relative z-10 backdrop-blur-sm">
+                      <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                         <div className="flex justify-between items-center">
                           <div className="text-sm font-medium text-gray-300">DGNPay</div>
                           {/* Visa logo at the top right */}
                           <div className="w-12 h-8 flex items-center justify-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none" className="filter drop-shadow-md">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 40 40" fill="none">
                               <path d="M14.219 24.583h-3.609l2.254-13.916h3.609L14.219 24.583z" fill="#00579F"/>
                               <path d="M26.504 10.957c-0.712-0.279-1.832-0.583-3.225-0.583-3.555 0-6.056 1.89-6.075 4.594-0.033 1.997 1.793 3.103 3.158 3.765 1.397 0.68 1.87 1.122 1.87 1.729-0.019 0.932-1.125 1.359-2.158 1.359-1.435 0-2.208-0.214-3.375-0.729l-0.469-0.224-0.506 3.12c0.844 0.388 2.4 0.729 4.012 0.747 3.781 0 6.225-1.865 6.262-4.74 0.019-1.579-0.937-2.785-3-3.772-1.25-0.64-2.012-1.064-2.012-1.714 0.019-0.582 0.637-1.19 2.025-1.19 1.15-0.019 1.982 0.243 2.625 0.524l0.319 0.157 0.469-3.043z" fill="#00579F"/>
                               <path d="M30.559 20.273c0.281-0.757 1.369-3.684 1.369-3.684-0.019 0.034 0.281-0.766 0.45-1.258l0.227 1.122c0 0 0.653 3.164 0.79 3.82h-2.836zm4.219-9.606h-2.781c-0.862 0-1.5 0.243-1.875 1.14l-5.325 12.776h3.769s0.618-1.714 0.75-2.08h4.594c0.113 0.495 0.431 2.08 0.431 2.08h3.329l-2.874-13.916h-0.019z" fill="#00579F"/>
@@ -195,13 +173,7 @@ const HeroSection = () => {
                   <div className="credit-card-back absolute w-full h-full backface-hidden" style={{ backfaceVisibility: "hidden", transform: "rotateY(180deg)" }}>
                     <div className="absolute inset-0 bg-gradient-to-r from-crypto-blue to-crypto-purple rounded-2xl opacity-60 blur-lg animate-pulse-soft"></div>
                     <div className="absolute inset-0 p-[3px] rounded-2xl bg-gradient-to-r from-crypto-blue via-crypto-purple to-crypto-orange overflow-hidden">
-                      {/* Metallic effect layers */}
-                      <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-black/20 opacity-50"></div>
-                      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top_right,_rgba(255,255,255,0.4),transparent_70%)] mix-blend-overlay"></div>
-                      <div className="absolute inset-0 bg-shimmer animate-shimmer"></div>
-                      
-                      {/* Card content */}
-                      <div className="h-full w-full rounded-2xl bg-black/80 flex flex-col justify-between p-6 relative z-10 backdrop-blur-sm">
+                      <div className="h-full w-full rounded-2xl bg-black/90 flex flex-col justify-between p-6 relative z-10">
                         <div className="w-full h-12 bg-gray-800/50 mt-4 rounded"></div>
                         <div className="flex flex-col space-y-4 mt-4">
                           <div className="flex justify-end">
