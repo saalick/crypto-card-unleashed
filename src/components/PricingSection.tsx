@@ -52,6 +52,14 @@ const PricingSection = () => {
     }
   ];
 
+  // Function to scroll to the whitelist section
+  const scrollToWhitelist = () => {
+    const whitelistSection = document.getElementById('whitelist');
+    if (whitelistSection) {
+      whitelistSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="pricing" className="py-24 relative">
       {/* Subtle background gradients */}
@@ -114,6 +122,7 @@ const PricingSection = () => {
                       ? 'bg-crypto-teal hover:bg-crypto-teal/90 text-black' 
                       : 'bg-gray-800 hover:bg-gray-700 text-white'
                   } font-medium`}
+                  onClick={scrollToWhitelist}
                 >
                   {plan.cta}
                 </Button>
