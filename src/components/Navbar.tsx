@@ -1,5 +1,7 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { Link } from "react-router-dom";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
 
 const Navbar = () => {
@@ -28,20 +30,23 @@ const Navbar = () => {
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between">
           <div className="flex items-center">
-            <div className="h-10 mr-2">
+            <Link to="/" className="h-10 mr-2">
               <img 
                 src="https://i.ibb.co/G47x2nDf/Screenshot-2025-05-12-at-11-45-08-PM-removebg-preview.png" 
                 alt="DGNPay Logo" 
                 className="h-full object-contain"
               />
-            </div>
+            </Link>
           </div>
           
           <div className="hidden md:flex items-center space-x-8">
-            <a href="#features" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Features</a>
-            <a href="#how-it-works" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">How It Works</a>
-            <a href="#pricing" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Pricing</a>
-            <a href="#faq" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">FAQ</a>
+            <Link to="/#features" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Features</Link>
+            <Link to="/#how-it-works" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">How It Works</Link>
+            <Link to="/security" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Security</Link>
+            <Link to="/card-customization" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Design</Link>
+            <Link to="/partner-network" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Partners</Link>
+            <Link to="/#pricing" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">Pricing</Link>
+            <Link to="/#faq" className="text-white hover:text-gradient transition-colors duration-300 relative after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:w-0 after:bg-gradient-to-r after:from-crypto-purple after:to-crypto-blue hover:after:w-full after:transition-all after:duration-300">FAQ</Link>
             <TooltipProvider>
               <Tooltip>
                 <TooltipTrigger asChild>
@@ -64,7 +69,7 @@ const Navbar = () => {
               </Tooltip>
             </TooltipProvider>
             <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all shadow-lg shadow-crypto-purple/20">
-              <a href="#whitelist">Join Whitelist</a>
+              <a href="/#whitelist">Join Whitelist</a>
             </Button>
           </div>
           
@@ -84,10 +89,13 @@ const Navbar = () => {
         {isMobileMenuOpen && (
           <div className="md:hidden mt-4 py-4 backdrop-blur-xl bg-gray-900/90 rounded-lg border border-gray-800 shadow-lg animate-fade-in animate-visible">
             <div className="flex flex-col space-y-4 px-4">
-              <a href="#features" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Features</a>
-              <a href="#how-it-works" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>How It Works</a>
-              <a href="#pricing" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Pricing</a>
-              <a href="#faq" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>FAQ</a>
+              <Link to="/#features" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Features</Link>
+              <Link to="/#how-it-works" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>How It Works</Link>
+              <Link to="/security" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Security</Link>
+              <Link to="/card-customization" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Design</Link>
+              <Link to="/partner-network" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Partners</Link>
+              <Link to="/#pricing" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>Pricing</Link>
+              <Link to="/#faq" className="text-white hover:text-crypto-purple transition-colors py-2 px-3 hover:bg-gray-800 rounded-md" onClick={() => setIsMobileMenuOpen(false)}>FAQ</Link>
               <a 
                 href="https://x.com/dgnpay" 
                 target="_blank" 
@@ -103,7 +111,7 @@ const Navbar = () => {
                 Follow us on X
               </a>
               <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all w-full mt-2" onClick={() => setIsMobileMenuOpen(false)}>
-                <a href="#whitelist">Join Whitelist</a>
+                <a href="/#whitelist">Join Whitelist</a>
               </Button>
             </div>
           </div>
