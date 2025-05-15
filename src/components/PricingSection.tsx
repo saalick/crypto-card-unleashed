@@ -52,6 +52,13 @@ const PricingSection = () => {
     }
   ];
 
+  const handleWhitelistClick = () => {
+    const whitelistSection = document.getElementById('whitelist');
+    if (whitelistSection) {
+      whitelistSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section id="pricing" className="py-24 relative">
       {/* Subtle background gradients */}
@@ -74,7 +81,7 @@ const PricingSection = () => {
               key={index} 
               className={`pricing-card relative overflow-hidden animate-fade-up animate-stagger-${index + 1} 
                 ${plan.isPopular ? 'border-crypto-teal shadow-lg shadow-crypto-teal/10 z-10 lg:scale-105' : 'border-gray-800'}
-                bg-gradient-to-b from-gray-900 to-black`}
+                bg-gradient-to-b from-gray-900 to-black hover:from-gray-800 hover:to-gray-900 transition-all duration-500`}
             >
               {plan.isPopular && (
                 <div className="absolute top-0 right-0">
@@ -113,7 +120,8 @@ const PricingSection = () => {
                     plan.isPopular 
                       ? 'bg-crypto-teal hover:bg-crypto-teal/90 text-black' 
                       : 'bg-gray-800 hover:bg-gray-700 text-white'
-                  } font-medium`}
+                  } font-medium transform transition-all duration-300 hover:-translate-y-1`}
+                  onClick={handleWhitelistClick}
                 >
                   {plan.cta}
                 </Button>
