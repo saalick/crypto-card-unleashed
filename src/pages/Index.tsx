@@ -1,11 +1,10 @@
-
 import { useEffect, useRef } from "react";
 import Navbar from "@/components/Navbar";
 import HeroSection from "@/components/HeroSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import HowItWorksSection from "@/components/HowItWorksSection";
 import PricingSection from "@/components/PricingSection";
-import WhitelistSection from "@/components/WhitelistSection";
+import WaitlistSection from "@/components/WhitelistSection";
 import FAQSection from "@/components/FAQSection";
 import Footer from "@/components/Footer";
 
@@ -120,7 +119,7 @@ const Index = () => {
       <FeaturesSection />
       <HowItWorksSection />
       <PricingSection />
-      <WhitelistSection />
+      <WaitlistSection />
       <FAQSection />
       <Footer />
     </div>

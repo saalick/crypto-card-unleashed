@@ -16,7 +16,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-const WhitelistSection = () => {
+const WaitlistSection = () => {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -40,7 +40,7 @@ const WhitelistSection = () => {
       
       toast({
         title: "Success!",
-        description: "You've been added to our whitelist. We'll notify you soon!",
+        description: "You've been added to our waitlist. We'll notify you soon!",
       });
       
       setIsSuccess(true);
@@ -50,7 +50,7 @@ const WhitelistSection = () => {
       console.error("Error submitting form:", error);
       toast({
         title: "Something went wrong.",
-        description: "There was an error adding you to the whitelist. Please try again later.",
+        description: "There was an error adding you to the waitlist. Please try again later.",
         variant: "destructive",
       });
     } finally {
@@ -63,7 +63,7 @@ const WhitelistSection = () => {
   };
 
   return (
-    <section id="whitelist" className="py-24 relative">
+    <section id="waitlist" className="py-24 relative">
       <div className="absolute inset-0 -z-10">
         <div className="absolute bottom-0 right-0 w-96 h-96 bg-crypto-purple/15 rounded-full filter blur-[80px]"></div>
         <div className="absolute top-0 left-0 w-96 h-96 bg-crypto-blue/15 rounded-full filter blur-[80px]"></div>
@@ -81,7 +81,7 @@ const WhitelistSection = () => {
                   <Mail className="h-8 w-8 text-white" />
                 </div>
               </div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Join Our Whitelist</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-6 text-gradient">Join Our Waitlist</h2>
               <p className="text-lg text-gray-300 max-w-xl mx-auto">
                 Be among the first to experience the future of crypto payments. Sign up for early access and updates.
               </p>
@@ -142,7 +142,7 @@ const WhitelistSection = () => {
                     <Check className="w-8 h-8" />
                   </div>
                   <h3 className="text-2xl font-medium text-white mb-4 text-center">You're on the list!</h3>
-                  <p className="text-gray-300 text-center mb-6">Thank you for joining our whitelist. We'll keep you updated with the latest news and launch information.</p>
+                  <p className="text-gray-300 text-center mb-6">Thank you for joining our waitlist. We'll keep you updated with the latest news and launch information.</p>
                   <div className="flex justify-center">
                     <Button 
                       variant="outline"
@@ -187,4 +187,4 @@ const WhitelistSection = () => {
   );
 };
 
-export default WhitelistSection;
+export default WaitlistSection;

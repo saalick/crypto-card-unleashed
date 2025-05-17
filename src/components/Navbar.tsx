@@ -1,3 +1,4 @@
+
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
 import { Tooltip, TooltipContent, TooltipProvider, TooltipTrigger } from "@/components/ui/tooltip";
@@ -64,7 +65,7 @@ const Navbar = () => {
               </Tooltip>
             </TooltipProvider>
             <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all shadow-lg shadow-crypto-purple/20">
-              <a href="#whitelist">Join Whitelist</a>
+              <a href="#waitlist">Join Waitlist</a>
             </Button>
           </div>
           
@@ -103,7 +104,7 @@ const Navbar = () => {
                 Follow us on X
               </a>
               <Button className="bg-gradient-to-r from-crypto-purple to-crypto-blue hover:opacity-90 transition-all w-full mt-2" onClick={() => setIsMobileMenuOpen(false)}>
-                <a href="#whitelist">Join Whitelist</a>
+                <a href="#waitlist">Join Waitlist</a>
               </Button>
             </div>
           </div>

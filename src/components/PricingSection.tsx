@@ -15,7 +15,7 @@ const PricingSection = () => {
         "Basic Exchange Rates",
         "Standard Support",
       ],
-      cta: "Get Started",
+      cta: "Join Waitlist",
       isPopular: false,
       accent: "border-gray-700"
     },
@@ -46,17 +46,17 @@ const PricingSection = () => {
         "Enhanced Security Features",
         "Expense Management Tools",
       ],
-      cta: "Contact Sales",
+      cta: "Join Waitlist",
       isPopular: false,
       accent: "border-gray-700"
     }
   ];
 
-  // Function to scroll to the whitelist section
-  const scrollToWhitelist = () => {
-    const whitelistSection = document.getElementById('whitelist');
-    if (whitelistSection) {
-      whitelistSection.scrollIntoView({ behavior: 'smooth' });
+  // Function to scroll to the waitlist section
+  const scrollToWaitlist = () => {
+    const waitlistSection = document.getElementById('waitlist');
+    if (waitlistSection) {
+      waitlistSection.scrollIntoView({ behavior: 'smooth' });
     }
   };
 
@@ -122,7 +122,7 @@ const PricingSection = () => {
                       ? 'bg-crypto-teal hover:bg-crypto-teal/90 text-black' 
                       : 'bg-gray-800 hover:bg-gray-700 text-white'
                   } font-medium`}
-                  onClick={scrollToWhitelist}
+                  onClick={scrollToWaitlist}
                 >
                   {plan.cta}
                 </Button>
